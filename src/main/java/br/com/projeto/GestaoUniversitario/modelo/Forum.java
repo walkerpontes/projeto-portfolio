@@ -1,15 +1,38 @@
 package br.com.projeto.GestaoUniversitario.modelo;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "forum")
 public class Forum {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     private String pergunta;
     private String tema;
-    private String resposta;
+
 
     
     public Forum(String pergunta, String tema) {
         this.pergunta = pergunta;
         this.tema = tema;
         
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public void setTema(String tema) {
+        this.tema = tema;
+    }
+
+    public Forum() {
+
     }
 
     public String getPergunta() {
@@ -20,11 +43,6 @@ public class Forum {
     }
     public String getTema() {
         return tema;
-    }
-    public void setTema(String tema) {
-        this.tema = tema;
-    } public String getResposta() {
-        return resposta;
     }
     @Override
     public String toString() {

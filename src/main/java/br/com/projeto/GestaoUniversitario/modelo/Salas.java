@@ -1,12 +1,28 @@
 package br.com.projeto.GestaoUniversitario.modelo;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "salas")
 public class Salas {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+     private Integer id;
      private String curso;
      private String titulo;
     public Salas(String curso, String titulo) {
         this.curso = curso;
         this.titulo = titulo;
     }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     public String getCurso() {
         return curso;
     }

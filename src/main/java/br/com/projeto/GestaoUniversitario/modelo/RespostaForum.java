@@ -4,9 +4,11 @@ import br.com.projeto.GestaoUniversitario.modelo.Forum;
 
 public class RespostaForum extends Forum {
     private String resposta;
+    private Forum forum;
 
-    public RespostaForum(String tema,String pergunta, String resposta) {
-        super(pergunta, tema);
+    public RespostaForum(Forum forum, String resposta) {
+        super();
+        this.forum = forum;
         this.resposta = resposta;
     }
 
