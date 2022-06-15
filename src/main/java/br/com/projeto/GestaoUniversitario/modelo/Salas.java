@@ -10,6 +10,10 @@ public class Salas {
      private Integer id;
      private String curso;
      private String titulo;
+
+    public Salas() {
+    }
+
     public Salas(String curso, String titulo) {
         this.curso = curso;
         this.titulo = titulo;

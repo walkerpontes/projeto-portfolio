@@ -1,13 +1,13 @@
 //package br.com.projeto.GestaoUniversitario.modelo;
-//
+
 //import java.util.ArrayList;
-//
+
 //import java.util.List;
 //import java.util.stream.Collectors;
-//
+
 //import javax.swing.JOptionPane;
-//
-//
+
+
 //public class App {
 //    public static void main(String[] args) throws Exception {
 //        List<Usuario> admin = new ArrayList<>();
@@ -18,10 +18,10 @@
 //        List<Forum> forum = new ArrayList<>();
 //        List<Salas> salas = new ArrayList<>();
 //        List<RespostaForum> respostas = new ArrayList<>();
-//
-//
+
+
 //      //:::::::::::::::::  LISTAS  :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-//
+
 //        salas.add(new Salas("Java","Java"));
 //        salas.add(new Salas("Walker","pontes"));
 //        cursos.add(new Cursos("JavaScript", "Criação web"));
@@ -35,11 +35,11 @@
 //        visitante.add(new UsuarioVistante("Maria", "maria@gmail.com", "maria123"));
 //        visitante.add(new UsuarioVistante("Pedro", "pedro@gmail.com", "pedro123"));
 //        respostas.add(new RespostaForum("Java", "É bom?", "Não"));
-//
+
 //      //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-//
-//
-//
+
+
+
 //        JOptionPane.showMessageDialog(null, "Bem vindo a Faculdade Walk", "Faculdade Walk", JOptionPane.INFORMATION_MESSAGE);
 //        String[] optionss = {"Administrador" , "Professor", "Estudante","Visitante"};
 //        int escolha = JOptionPane.showOptionDialog(null, "Que tipo de usuario você é ?","Escolha uma opção", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, optionss, optionss[0]);
@@ -60,7 +60,7 @@
 //                    JOptionPane.showMessageDialog(null, novaSala, "Sala Criada", JOptionPane.INFORMATION_MESSAGE);
 //                }
 //                if(escolha3==1){
-//
+
 //                    String tituloSeach = JOptionPane.showInputDialog(null, "Que sala você quer acessar\nColoque o titulo:", "Procurar Sala - Faculdade Walk",JOptionPane.INFORMATION_MESSAGE);
 //                    boolean salaTrueOrFalse = salas.stream().anyMatch(sl -> sl.getTitulo().equals(tituloSeach));
 //                    if(salaTrueOrFalse == true){
@@ -82,7 +82,7 @@
 //                String[] options2 = {"Cria Curso","Procurar Curso","Remover Curso"};
 //                int escolha4=JOptionPane.showOptionDialog(null, "O que você deseja acessar?", "Curso - Faculdade Walk", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options2, options2[0]);
 //                if(escolha4==0){
-//
+
 //                    String cursoNome = JOptionPane.showInputDialog(null, "Coloque o nome do Curso:", "Criação de Curso - Faculdade Walk", JOptionPane.INFORMATION_MESSAGE);
 //                    String cursoTitulo = JOptionPane.showInputDialog(null, "Coloque o titulo do Curso:", "Criação de Curso - Faculdade Walk", JOptionPane.INFORMATION_MESSAGE);
 //                    cursos.add(new Cursos(cursoNome, cursoTitulo));
@@ -106,7 +106,7 @@
 //                        JOptionPane.showMessageDialog(null, "Esse curso foi removido com sucesso", "Remover Curso - Faculdade Walk", JOptionPane.INFORMATION_MESSAGE);}
 //                    else{JOptionPane.showMessageDialog(null, "Curso não encontrado\nVerifique se o nome está certo", "Remover Curso - Faculdade Walk", JOptionPane.ERROR_MESSAGE);}
 //                }
-//
+
 //            }
 //  /*Forum*/ if(escolha2==2){
 //               String[] opcoes3 = {"Criar Pergunta","Procurar","Remover"};
@@ -140,9 +140,9 @@
 //                                                        .filter(fl -> fl.getTema().equals(theme))
 //                                                        .filter(flt -> flt.getPergunta().equals(shPergunta))
 //                                                        .collect(Collectors.toList());
-//
+
 //                        JOptionPane.showMessageDialog(null, filterPegunta , "Busca por Forum - Faculdade Walk", JOptionPane.INFORMATION_MESSAGE);
-//
+
 //                       int condicao = JOptionPane.showOptionDialog(null, "Você deseja responder?", "Área de resposta - Faculdade Walk", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE, null, null, null);
 //                       switch(condicao){
 //                           case 0:
@@ -151,18 +151,18 @@
 //                          JOptionPane.showMessageDialog(null, resposta1, "Pergunta Respondida", JOptionPane.INFORMATION_MESSAGE);
 //                          break;
 //                           case 1: break;
-//
+
 //                       }break;
-//
+
 //                    }break;
 //                   case 2:
 //                   String rmvPergunta = JOptionPane.showInputDialog(null, "Por qual pergunta você deseja remover?","Remover pergunta - Universidade Walk", JOptionPane.INFORMATION_MESSAGE);
 //                   List<Forum> RemoverPergunta = forum.stream().filter(pg -> pg.getPergunta().equals(rmvPergunta)).collect(Collectors.toList());
 //                    forum.removeAll(RemoverPergunta);
-//
+
 //                    JOptionPane.showMessageDialog(null, "Pergunta removida", "Remover ", JOptionPane.INFORMATION_MESSAGE);
 //                    break;
-//
+
 //                }
 //            }
 //  /*Aluno*/ if(escolha2==3){
@@ -186,7 +186,7 @@
 //                            JOptionPane.showMessageDialog(null, "O aluno "+rmvAluno+" foi removido","Aluno Removido - Universidade Walk",JOptionPane.INFORMATION_MESSAGE);
 //                        }else{JOptionPane.showMessageDialog(null, "O Aluno "+rmvAluno+" não foi encontrado\nVerifique se o nome esta certo", "Remover Aluno - Univerdade Walk",JOptionPane.INFORMATION_MESSAGE);}
 //                        break;
-//
+
 //                }
 //          }
 ///*Professor*/ if(escolha2==4){
@@ -210,7 +210,7 @@
 //                    JOptionPane.showMessageDialog(null, "O Professor "+rmvProf+" foi removido","Professor Removido - Universidade Walk",JOptionPane.INFORMATION_MESSAGE);
 //                }else{JOptionPane.showMessageDialog(null, "O Aluno "+rmvProf+" não foi encontrado\nVerifique se o nome esta certo", "Remover Professor - Univerdade Walk",JOptionPane.INFORMATION_MESSAGE);}
 //                break;
-//
+
 //        }
 //           }
 ///*Visitante*/ if(escolha2==5) {
@@ -234,12 +234,12 @@
 //                    JOptionPane.showMessageDialog(null, "O Visitante "+rmvVis+" foi removido","Visitante Removido - Universidade Walk",JOptionPane.INFORMATION_MESSAGE);
 //                }else{JOptionPane.showMessageDialog(null, "O Visitante "+rmvVis+" não foi encontrado\nVerifique se o nome esta certo", "Remover Visitante - Univerdade Walk",JOptionPane.INFORMATION_MESSAGE);}
 //                break;
-//
+
 //        }
-//
+
 //            }
 //        }
-//
+
 ///*Professor*/if(escolha==1){
 //            String emailProf = JOptionPane.showInputDialog(null,"Coloque o email:","Login Professor - Universidade Walk",JOptionPane.INFORMATION_MESSAGE);
 //            String nomeProf = JOptionPane.showInputDialog(null, "Coloque o seu nome de usuário:","Login Professor - Universidade Walk", JOptionPane.INFORMATION_MESSAGE);
@@ -254,12 +254,12 @@
 //            }
 //             String[] optionsProf ={"Cursos","Salas","Forum"};
 //             int option1 = JOptionPane.showOptionDialog(null, "Oque você deseja acessar?\nEscolha umas das opções abaixo:", "Área do Professor - Universidade Walk", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, optionsProf, optionsProf[0]);
-//
+
 ///*Cursos*/ if(option1==0){
 //             String[] options2 = {"Cria Curso","Procurar Curso","Remover Curso"};
 //             int escolha4=JOptionPane.showOptionDialog(null, "O que você deseja acessar?", "Curso - Faculdade Walk", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options2, options2[0]);
 //             if(escolha4==0){
-//
+
 //             String cursoNome = JOptionPane.showInputDialog(null, "Coloque o nome do Curso:", "Criação de Curso - Faculdade Walk", JOptionPane.INFORMATION_MESSAGE);
 //             String cursoTitulo = JOptionPane.showInputDialog(null, "Coloque o titulo do Curso:", "Criação de Curso - Faculdade Walk", JOptionPane.INFORMATION_MESSAGE);
 //             cursos.add(new Cursos(cursoNome, cursoTitulo));
@@ -283,9 +283,9 @@
 //             JOptionPane.showMessageDialog(null, "Esse curso foi removido com sucesso", "Remover Curso - Faculdade Walk", JOptionPane.INFORMATION_MESSAGE);}
 //             else{JOptionPane.showMessageDialog(null, "Curso não encontrado\nVerifique se o nome está certo", "Remover Curso - Faculdade Walk", JOptionPane.ERROR_MESSAGE);}
 //             }
-//
+
 //        }
-//
+
 ///*Salas*/   if(option1==1){
 //         String[] options1 = {"Cria sala","Procurar Sala","Remover Sala"};
 //                int escolha3=JOptionPane.showOptionDialog(null, "O que você deseja acessar:", "Faculdade Walk",JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options1, options1[0]);
@@ -297,7 +297,7 @@
 //                    JOptionPane.showMessageDialog(null, novaSala, "Sala Criada", JOptionPane.INFORMATION_MESSAGE);
 //                }
 //                if(escolha3==1){
-//
+
 //                    String tituloSeach = JOptionPane.showInputDialog(null, "Que sala você quer acessar\nColoque o titulo:", "Procurar Sala - Faculdade Walk",JOptionPane.INFORMATION_MESSAGE);
 //                    boolean salaTrueOrFalse = salas.stream().anyMatch(sl -> sl.getTitulo().equals(tituloSeach));
 //                    if(salaTrueOrFalse == true){
@@ -314,7 +314,7 @@
 //                        JOptionPane.showMessageDialog(null, "Essa sala foi removida com sucesso", "Remover Sala - Faculdade Walk", JOptionPane.INFORMATION_MESSAGE);
 //                    }else{JOptionPane.showMessageDialog(null, "Sala não encontrada\nVerifique se o titulo está certo", "Remover Sala - Faculdade Walk", JOptionPane.ERROR_MESSAGE);}
 //                }
-//
+
 //        }
 ///*Forum*/  if(option1==2) {
 //    String[] opcoes3 = {"Criar Pergunta","Procurar","Remover"};
@@ -348,37 +348,37 @@
 //                                             .filter(fl -> fl.getTema().equals(theme))
 //                                             .filter(flt -> flt.getPergunta().equals(shPergunta))
 //                                             .collect(Collectors.toList());
-//
+
 //             JOptionPane.showMessageDialog(null, filterPegunta , "Busca por Forum - Faculdade Walk", JOptionPane.INFORMATION_MESSAGE);
-//
+
 //            int condicao = JOptionPane.showOptionDialog(null, "Você deseja responder?", "Área de resposta - Faculdade Walk", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE, null, null, null);
 //            switch(condicao){
 //                case 0:
-//
+
 //                String resposta = JOptionPane.showInputDialog(null, "Coloque a sua resposta:", "Respondendo pergunta - Facildade Walk", JOptionPane.INFORMATION_MESSAGE);
 //                RespostaForum resposta1 = new RespostaForum(theme, shPergunta, resposta);
 //               JOptionPane.showMessageDialog(null, resposta1, "Pergunta Respondida", JOptionPane.INFORMATION_MESSAGE);
 //               break;
 //                case 1: break;
-//
+
 //            }break;
-//
+
 //         }break;
 //        case 2:
 //        String rmvPergunta = JOptionPane.showInputDialog(null, "Por qual pergunta você deseja remover?","Remover pergunta - Universidade Walk", JOptionPane.INFORMATION_MESSAGE);
 //        List<Forum> RemoverPergunta = forum.stream().filter(pg -> pg.getPergunta().equals(rmvPergunta)).collect(Collectors.toList());
 //         forum.removeAll(RemoverPergunta);
-//
+
 //         JOptionPane.showMessageDialog(null, "Pergunta removida", "Remover ", JOptionPane.INFORMATION_MESSAGE);
 //         break;
-//
+
 //          }
 //        }
-//
-//
-//
+
+
+
 //        }
-//
+
 ///*Aluno*/if(escolha==2){
 //    String alunoEmail = JOptionPane.showInputDialog(null,"Coloque o email:","Login Aluno - Universidade Walk",JOptionPane.INFORMATION_MESSAGE);
 //    String nomeAluno = JOptionPane.showInputDialog(null, "Coloque o seu nome de usuário:","Login Aluno - Universidade Walk", JOptionPane.INFORMATION_MESSAGE);
@@ -396,7 +396,7 @@
 ///*Cursos*/if(option1==0){
 //        String[] options2 = {"Procurar Curso","Acessar Curso"};
 //        int escolha4=JOptionPane.showOptionDialog(null, "O que você deseja acessar?", "Curso - Faculdade Walk", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options2, options2[0]);
-//
+
 //        if(escolha4==0){
 //        String cursoSeach = JOptionPane.showInputDialog(null, "Que curso você quer procurar?\nColoque o nome do curso:", "Procurar Curso - Faculdade Walk",JOptionPane.INFORMATION_MESSAGE);
 //        boolean cursoTrueOrFalse = cursos.stream().anyMatch(sl -> sl.getNome().equals(cursoSeach));
@@ -405,7 +405,7 @@
 //        JOptionPane.showMessageDialog(null, cursoNameSeach,"Procurar Curso - Faculdade Walk", JOptionPane.INFORMATION_MESSAGE);
 //       }else{JOptionPane.showMessageDialog(null, "Curso não encontrado","Procurar Curso - Faculdade Walk", JOptionPane.ERROR_MESSAGE);}
 //       }
-//
+
 //        if(escolha4==1){
 //            String cursoSeach = JOptionPane.showInputDialog(null, "Que curso você quer acessar?\nColoque o nome do curso:", "Acessar Curso - Faculdade Walk",JOptionPane.INFORMATION_MESSAGE);
 //        boolean cursoTrueOrFalse = cursos.stream().anyMatch(sl -> sl.getNome().equals(cursoSeach));
@@ -413,18 +413,18 @@
 //        List<Cursos> cursoNameSeach = cursos.stream().filter(sls -> sls.getNome().equals(cursoSeach)).collect(Collectors.toList());
 //        JOptionPane.showMessageDialog(null, cursoNameSeach,"Acessar Curso - Faculdade Walk", JOptionPane.INFORMATION_MESSAGE);
 //       }else{JOptionPane.showMessageDialog(null, "Curso não encontrado","Acessar Curso - Faculdade Walk", JOptionPane.ERROR_MESSAGE);}
-//
+
 //        }
-//
-//
+
+
 //      }
-//
+
 ///*Salas*/if(option1==1){
 //             String[] options1 = {"Procurar Sala","Acessar Sala"};
 //                int escolha3=JOptionPane.showOptionDialog(null, "O que você deseja acessar:", "Faculdade Walk",JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options1, options1[0]);
-//
+
 //                if(escolha3==0){
-//
+
 //                    String tituloSeach = JOptionPane.showInputDialog(null, "Que sala você quer procurar\nColoque o titulo:", "Procurar Sala - Faculdade Walk",JOptionPane.INFORMATION_MESSAGE);
 //                    boolean salaTrueOrFalse = salas.stream().anyMatch(sl -> sl.getTitulo().equals(tituloSeach));
 //                    if(salaTrueOrFalse == true){
@@ -432,7 +432,7 @@
 //                        JOptionPane.showMessageDialog(null, salaSeach,"Sala encontrada - Faculdade Walk",JOptionPane.INFORMATION_MESSAGE);
 //                    }else{JOptionPane.showMessageDialog(null, "Sala não encontrada", "Erro - Faculdade Walk", JOptionPane.ERROR_MESSAGE);}
 //                }
-//
+
 //                if(escolha3==1){
 //                    String tituloSeach = JOptionPane.showInputDialog(null, "Que sala você quer acessar\nColoque o titulo:", "Acessar Sala - Faculdade Walk",JOptionPane.INFORMATION_MESSAGE);
 //                    boolean salaTrueOrFalse = salas.stream().anyMatch(sl -> sl.getTitulo().equals(tituloSeach));
@@ -440,10 +440,10 @@
 //                        List<Salas> salaSeach = salas.stream().filter(sls -> sls.getTitulo().equals(tituloSeach)).collect(Collectors.toList());
 //                        JOptionPane.showMessageDialog(null, salaSeach,"Sala encontrada - Faculdade Walk",JOptionPane.INFORMATION_MESSAGE);
 //                    }else{JOptionPane.showMessageDialog(null, "Sala não encontrada", "Erro - Faculdade Walk", JOptionPane.ERROR_MESSAGE);}
-//
+
 //                }
 //            }
-//
+
 ///*Forum*/if(option1==2){
 //    String[] opcoes3 = {"Criar Pergunta","Procurar","Remover"};
 //    int option = JOptionPane.showOptionDialog(null, "O que você deseja acessar?", "Forum - Universidade Walk", JOptionPane.DEFAULT_OPTION,JOptionPane.INFORMATION_MESSAGE, null,opcoes3,opcoes3[0]);
@@ -476,39 +476,39 @@
 //                                             .filter(fl -> fl.getTema().equals(theme))
 //                                             .filter(flt -> flt.getPergunta().equals(shPergunta))
 //                                             .collect(Collectors.toList());
-//
+
 //             JOptionPane.showMessageDialog(null, filterPegunta , "Busca por Forum - Faculdade Walk", JOptionPane.INFORMATION_MESSAGE);
-//
+
 //            int condicao = JOptionPane.showOptionDialog(null, "Você deseja responder?", "Área de resposta - Faculdade Walk", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE, null, null, null);
 //            switch(condicao){
 //                case 0:
-//
+
 //                String resposta = JOptionPane.showInputDialog(null, "Coloque a sua resposta:", "Respondendo pergunta - Facildade Walk", JOptionPane.INFORMATION_MESSAGE);
 //                RespostaForum resposta1 = new RespostaForum(theme, shPergunta, resposta);
 //               JOptionPane.showMessageDialog(null, resposta1, "Pergunta Respondida", JOptionPane.INFORMATION_MESSAGE);
 //               break;
 //                case 1: break;
-//
+
 //            }break;
-//
+
 //         }break;
 //        case 2:
 //        String rmvPergunta = JOptionPane.showInputDialog(null, "Por qual pergunta você deseja remover?","Remover pergunta - Universidade Walk", JOptionPane.INFORMATION_MESSAGE);
 //        List<Forum> RemoverPergunta = forum.stream().filter(pg -> pg.getPergunta().equals(rmvPergunta)).collect(Collectors.toList());
 //         forum.removeAll(RemoverPergunta);
-//
+
 //         JOptionPane.showMessageDialog(null, "Pergunta removida", "Remover ", JOptionPane.INFORMATION_MESSAGE);
 //         break;
-//
+
 //          }
-//
+
 //        }
-//
-//
-//
+
+
+
 //       }
-//
-//
+
+
 ///*Visitante*/if(escolha==3){
 //    String visitanteEmail = JOptionPane.showInputDialog(null,"Coloque o email:","Login Visitante - Universidade Walk",JOptionPane.INFORMATION_MESSAGE);
 //    String nomeVisitante = JOptionPane.showInputDialog(null, "Coloque o seu nome de usuário:","Login Visitante - Universidade Walk", JOptionPane.INFORMATION_MESSAGE);
@@ -526,7 +526,7 @@
 ///*Cursos*/if(option1==0){
 //    String[] options2 = {"Procurar Curso","Acessar Curso"};
 //    int escolha4=JOptionPane.showOptionDialog(null, "O que você deseja acessar?", "Curso - Faculdade Walk", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options2, options2[0]);
-//
+
 //    if(escolha4==0){
 //    String cursoSeach = JOptionPane.showInputDialog(null, "Que curso você quer procurar?\nColoque o nome do curso:", "Procurar Curso - Faculdade Walk",JOptionPane.INFORMATION_MESSAGE);
 //    boolean cursoTrueOrFalse = cursos.stream().anyMatch(sl -> sl.getNome().equals(cursoSeach));
@@ -535,7 +535,7 @@
 //    JOptionPane.showMessageDialog(null, cursoNameSeach,"Procurar Curso - Faculdade Walk", JOptionPane.INFORMATION_MESSAGE);
 //   }else{JOptionPane.showMessageDialog(null, "Curso não encontrado","Procurar Curso - Faculdade Walk", JOptionPane.ERROR_MESSAGE);}
 //   }
-//
+
 //    if(escolha4==1){
 //        String cursoSeach = JOptionPane.showInputDialog(null, "Que curso você quer acessar?\nColoque o nome do curso:", "Acessar Curso - Faculdade Walk",JOptionPane.INFORMATION_MESSAGE);
 //    boolean cursoTrueOrFalse = cursos.stream().anyMatch(sl -> sl.getNome().equals(cursoSeach));
@@ -543,18 +543,18 @@
 //    List<Cursos> cursoNameSeach = cursos.stream().filter(sls -> sls.getNome().equals(cursoSeach)).collect(Collectors.toList());
 //    JOptionPane.showMessageDialog(null, cursoNameSeach,"Acessar Curso - Faculdade Walk", JOptionPane.INFORMATION_MESSAGE);
 //   }else{JOptionPane.showMessageDialog(null, "Curso não encontrado","Acessar Curso - Faculdade Walk", JOptionPane.ERROR_MESSAGE);}
-//
+
 //    }
-//
-//
+
+
 //  }
-//
+
 ///*Salas*/if(option1==1){
 //         String[] options1 = {"Procurar Sala"};
 //            int escolha3=JOptionPane.showOptionDialog(null, "O que você deseja acessar:", "Faculdade Walk",JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options1, options1[0]);
-//
+
 //            if(escolha3==0){
-//
+
 //                String tituloSeach = JOptionPane.showInputDialog(null, "Que sala você quer procurar\nColoque o titulo:", "Procurar Sala - Faculdade Walk",JOptionPane.INFORMATION_MESSAGE);
 //                boolean salaTrueOrFalse = salas.stream().anyMatch(sl -> sl.getTitulo().equals(tituloSeach));
 //                if(salaTrueOrFalse == true){
@@ -562,9 +562,9 @@
 //                    JOptionPane.showMessageDialog(null, salaSeach,"Sala encontrada - Faculdade Walk",JOptionPane.INFORMATION_MESSAGE);
 //                }else{JOptionPane.showMessageDialog(null, "Sala não encontrada", "Erro - Faculdade Walk", JOptionPane.ERROR_MESSAGE);}
 //            }
-//
+
 //        }
-//
+
 ///*Forum*/if(option1==2){
 //String[] opcoes3 = {"Criar Pergunta","Procurar","Remover"};
 //int option = JOptionPane.showOptionDialog(null, "O que você deseja acessar?", "Forum - Universidade Walk", JOptionPane.DEFAULT_OPTION,JOptionPane.INFORMATION_MESSAGE, null,opcoes3,opcoes3[0]);
@@ -597,9 +597,9 @@
 //                                         .filter(fl -> fl.getTema().equals(theme))
 //                                         .filter(flt -> flt.getPergunta().equals(shPergunta))
 //                                         .collect(Collectors.toList());
-//
+
 //         JOptionPane.showMessageDialog(null, filterPegunta , "Busca por Forum - Faculdade Walk", JOptionPane.INFORMATION_MESSAGE);
-//
+
 //        int condicao = JOptionPane.showOptionDialog(null, "Você deseja responder?", "Área de resposta - Faculdade Walk", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE, null, null, null);
 //        switch(condicao){
 //            case 0:
@@ -608,25 +608,25 @@
 //           JOptionPane.showMessageDialog(null, resposta1, "Pergunta Respondida", JOptionPane.INFORMATION_MESSAGE);
 //           break;
 //            case 1: break;
-//
+
 //        }break;
-//
+
 //     }break;
 //    case 2:
 //    String rmvPergunta = JOptionPane.showInputDialog(null, "Por qual pergunta você deseja remover?","Remover pergunta - Universidade Walk", JOptionPane.INFORMATION_MESSAGE);
 //    List<Forum> RemoverPergunta = forum.stream().filter(pg -> pg.getPergunta().equals(rmvPergunta)).collect(Collectors.toList());
 //     forum.removeAll(RemoverPergunta);
-//
+
 //     JOptionPane.showMessageDialog(null, "Pergunta removida", "Remover ", JOptionPane.INFORMATION_MESSAGE);
 //     break;
-//
+
 //      }
-//
+
 //    }
-//
+
 //       }
-//
+
 //    }
-//
-//
+
+
 //}
