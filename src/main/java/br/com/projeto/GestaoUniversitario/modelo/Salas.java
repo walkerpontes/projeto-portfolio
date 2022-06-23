@@ -1,6 +1,7 @@
 package br.com.projeto.GestaoUniversitario.modelo;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "salas")
@@ -11,12 +12,25 @@ public class Salas {
      private String curso;
      private String titulo;
 
+     @ManyToMany
+     private List<Usuario> usuario;
+
+
+
     public Salas() {
     }
 
     public Salas(String curso, String titulo) {
         this.curso = curso;
         this.titulo = titulo;
+    }
+
+    public List<Usuario> getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(List<Usuario> usuario) {
+        this.usuario = usuario;
     }
 
     public Integer getId() {
@@ -39,6 +53,8 @@ public class Salas {
     public void setTitulo(String titulo) {
         this.titulo = titulo;
     }
+
+
     @Override
     public String toString() {
         return String.format(" Sala do curso: %s  sobre  %s\n", this.curso,this.titulo);

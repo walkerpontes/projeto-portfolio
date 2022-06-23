@@ -1,12 +1,10 @@
 package br.com.projeto.GestaoUniversitario;
 
-import br.com.projeto.GestaoUniversitario.repository.CursosRepository;
-import br.com.projeto.GestaoUniversitario.repository.SalasRepository;
-import br.com.projeto.GestaoUniversitario.repository.UsuarioRepository;
-import br.com.projeto.GestaoUniversitario.service.CursosService;
-import br.com.projeto.GestaoUniversitario.service.ForumService;
-import br.com.projeto.GestaoUniversitario.service.SalasService;
-import br.com.projeto.GestaoUniversitario.service.UsuarioService;
+//import br.com.projeto.GestaoUniversitario.modelo.Forum;
+//import br.com.projeto.GestaoUniversitario.modelo.RespostaForum;
+import br.com.projeto.GestaoUniversitario.service.*;
+//import br.com.projeto.GestaoUniversitario.service.ForumService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -25,11 +23,13 @@ public class GestaoUniversitarioApplication implements CommandLineRunner {
 	@Autowired
 	private final UsuarioService usuarioService;
 	private final SalasService salasService;
+	private final CadastrosService cadastros;
 	private final ForumService forumService;
 
 
-	public GestaoUniversitarioApplication(CursosService cursosService,UsuarioService usuarioService,
-										  SalasService salasService,ForumService forumService){
+	public GestaoUniversitarioApplication(CursosService cursosService, UsuarioService usuarioService,
+										  SalasService salasService, CadastrosService cadastros,ForumService forumService){
+		this.cadastros = cadastros;
 		this.cursosService = cursosService;
 		this.usuarioService = usuarioService;
 		this.forumService = forumService;
@@ -49,15 +49,19 @@ public class GestaoUniversitarioApplication implements CommandLineRunner {
 					"\n1 - Login" +
 					"\n2 - Salas" +
 					"\n3 - Forum" +
-					"\n4 - Cursos");
+					"\n4 - Cursos" +
+					"\n5 - Cadastros");
 			int menu = scanner.nextInt();
 			switch (menu){
 				case 1:usuarioService.iniciar(scanner);break;
 				case 2:salasService.iniciar(scanner);break;
-				case 3:forumService.iniciar(scanner);break;
+				case 3:/*forumService.iniciar(scanner)*/;break;
 				case 4:cursosService.iniciar(scanner);break;
-				default:system = false;break;
+				case 5:cadastros.iniciar(scanner);
+				default:system = false;
 			}
+
 		}
+
 	}
 }

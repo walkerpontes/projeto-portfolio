@@ -1,6 +1,7 @@
 package br.com.projeto.GestaoUniversitario.modelo;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "cursos")
@@ -11,12 +12,23 @@ public class Cursos {
     private String nome;
     private String titulo;
 
+    @OneToMany(mappedBy = "curso")
+    private List<Usuario> usuario;
+
     public Cursos() {
     }
 
     public Cursos(String nome, String titulo) {
         this.nome = nome;
         this.titulo = titulo;
+    }
+
+    public List<Usuario> getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(List<Usuario> usuario) {
+        this.usuario = usuario;
     }
 
     public Integer getId() {

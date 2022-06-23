@@ -1,20 +1,24 @@
 package br.com.projeto.GestaoUniversitario.service;
 
 import br.com.projeto.GestaoUniversitario.modelo.Usuario;
+import br.com.projeto.GestaoUniversitario.repository.CursosRepository;
 import br.com.projeto.GestaoUniversitario.repository.UsuarioRepository;
 import org.springframework.stereotype.Service;
 
-import javax.swing.*;
-import javax.xml.namespace.QName;
 import java.util.Scanner;
 
 @Service
 public class UsuarioService {
     private Usuario usuario;
     private Boolean system = true;
+    private CadastrosService cadastros;
 
     private final UsuarioRepository repository;
-    public UsuarioService(UsuarioRepository repository){this.repository = repository;}
+    private final CursosRepository cursosRepository;
+    public UsuarioService(UsuarioRepository repository,CursosRepository cursosRepository){
+        this.repository = repository;
+        this.cursosRepository = cursosRepository;
+    }
 
     public void iniciar(Scanner scanner){
         while(system){
@@ -22,11 +26,17 @@ public class UsuarioService {
             System.out.println("O que deseja fazer na Área de login" +
                     "\n0 - Sair" +
                     "\n1 - Atualizar" +
-                    "\n2 - Remover conta");
+                    "\n2 - Cadastrar em um curso" +
+                    "\n3 - Cadastrar em uma sala" +
+                    "\n4 - Responder" +
+                    "\n5 - Remover conta");
             int menu = scanner.nextInt();
             switch (menu){
                 case 1: atualizar(scanner);break;
-                case 2: deletar(scanner);break;
+                case 2:;break;
+                case 3:;break;
+                case 4: break;
+                case 5: deletar(scanner);break;
                 default:
                     system = false;
                     break;
@@ -43,10 +53,10 @@ public class UsuarioService {
         System.out.println("Coloque o senha");
         String senha = scanner.next();
 
-     Usuario usuarioLogin = new Usuario();
-     usuarioLogin.setNome(nome);
-     usuarioLogin.setEmail(email);
-     usuarioLogin.setSenha(senha);
+        Usuario usuarioLogin = new Usuario();
+        usuarioLogin.setNome(nome);
+        usuarioLogin.setEmail(email);
+        usuarioLogin.setSenha(senha);
         repository.save(usuarioLogin);
     }
 
@@ -75,10 +85,13 @@ public class UsuarioService {
 
     }
 
+
     private void deletar(Scanner scanner){
         System.out.println("Qual é o seu id");
         int id = scanner.nextInt();
         repository.deleteById(id);
         System.out.println("deletado");
     }
+
+
 }

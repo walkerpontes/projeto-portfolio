@@ -1,11 +1,8 @@
 package br.com.projeto.GestaoUniversitario.service;
 
 import br.com.projeto.GestaoUniversitario.modelo.Forum;
-import br.com.projeto.GestaoUniversitario.modelo.Salas;
 import br.com.projeto.GestaoUniversitario.repository.ForumRepository;
-import br.com.projeto.GestaoUniversitario.repository.SalasRepository;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Scanner;
 

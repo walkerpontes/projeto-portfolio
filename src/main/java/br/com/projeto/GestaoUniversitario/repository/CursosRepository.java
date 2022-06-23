@@ -12,4 +12,6 @@ import java.util.List;
 @Repository
 public interface CursosRepository extends PagingAndSortingRepository<Cursos,Integer>, JpaSpecificationExecutor<Cursos> {
     List<Cursos> findByNome(String nome);
+
+
 }

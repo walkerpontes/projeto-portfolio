@@ -88,4 +88,14 @@ public class CursosService {
         repository.deleteById(id);
         System.out.println("deletado");
     }
+
+    private void alunosCadastrados(Scanner scanner){
+        System.out.println("Por qual curso você quer procurar");
+        System.out.println("Coloque o id do curso");
+        int curso = scanner.nextInt();
+        repository.findById(curso).get().getUsuario().forEach(System.out::println);
+
+
+    }
+
 }
