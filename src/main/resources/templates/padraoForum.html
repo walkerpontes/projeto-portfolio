@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+  <meta charset="UTF-8">
+  <title>Forum - Biblioteca A. Pontes</title>
+  <link rel="stylesheet" href="/css/padraoForum.css">
+  <link rel="icon" href="/img/logo.png">
+</head>
+<body>
+<header>
+  <a href="/logout" xmlns:sec="http://www.thymeleaf.org/extras/spring-security"><button class="logout" sec:authorize="isAuthenticated()">Logout</button></a>
+  <a href="/login" xmlns:sec="http://www.thymeleaf.org/extras/spring-security"><button class="logout" sec:authorize="isAnonymous()">Login</button></a>
+
+  <div class="banner">
+    <a href="/home"><img src="/img/logo.png" width="30" height="30" alt="logo"></a>
+    <ul>
+      <li><a href="/cursos">Cursos</a></li>
+      <li><a href="/forum">Forum</a></li>
+      <li><a href="/salas">Salas</a></li>
+      <li><a href="/perfil">Perfil</a></li>
+    </ul>
+  </div>
+</header>
+<div class="content" >
+  <div class="pergunta" th:each="forum:${forum}">
+    <p class="tema" th:text="${forum.tema}">Tema de  algo</p>
+    <p class="question" th:text="${forum.pergunta}">Pergunta muito importante</p>
+  </div>
+
+  <div class="table-responder" th:each="forum:${forum.getId()}">
+    <form th:action="@{/forum/responder}" method="get">
+      <label>
+        <input type="hidden" th:value="${forum}" name="id">
+        <span>Responder</span>
+        <textarea id="resposta" name="resposta"></textarea>
+        <input type="submit">
+      </label>
+    </form>
+  </div>
+
+
+  <div class="respostas">
+    <div class="totalRespostas"><p>Total de respostas: <span th:text="${respostas.size()}">0</span></p></div>
+
+    <div class="caixas-respostas" th:each="respostas:${respostas}">
+      <ul>
+        <li class="response" th:text="${respostas.getResposta()}">Resposta de todas as coisas</li>
+        <li class="user" th:text="${respostas.getUsuario().getEmail()}" >Desconhecido</li>
+        <li class="user" th:if="${respostas.usuario.email==null}">Desconhecido</li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div th:replace="/shared/footer">
+</div>
+</body>
+
+</html>

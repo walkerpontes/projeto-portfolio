@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Biblioteca A. Pontes</title>
+    <link rel="stylesheet" href="/css/home.css" type="text/css">
+    <link rel="icon" href="/img/logo.png">
+</head>
+<body>
+<a href="/logout"><button class="logout" sec:authorize="isAuthenticated()">Logout</button></a>
+<a href="/login"><button class="logout" sec:authorize="isAnonymous()">Login</button></a>
+<header style="background-image: url(/img/universidade.png);">
+    <div class="universidade">
+
+
+    </div>
+    <div class="banner">
+        <a href="/home"><img src="/img/logo.png" width="30" height="30" alt="logo"></a>
+            <ul>
+                <li><a href="/cursos">Cursos</a></li>
+                <li><a href="/forum">Forum</a></li>
+                <li><a href="/salas">Salas</a></li>
+                <li><a href="/perfil">Perfil</a></li>
+            </ul>
+        </div>
+
+    <div class="sobre">
+        <div class="inicial">
+            <div class="frase">
+             <p>As raízes do estudos são <span>amargas</span>,<br> mas seus frutos são <span>doces</span>.</p>
+            </div>
+
+
+            <span class="autor">- Aristóteles</span>
+
+            <a href="/cursos"><button type="button" class="botao">comece a estudar</button></a>
+        </div>
+    </div>
+
+    </header>
+    <main style="background: black">
+        <form action="/cursos">
+            <div class="curso">
+                <h2>Cursos</h2>
+
+                <div class="caixas">
+
+                    <div class="caixas-1">
+                        <form action="/cursos/search?buscar=java">
+                                <div class="bloco1" style="background-image: url(/img/java.png)">
+                                    <h4>Java</h4>
+                                    <p>Java é uma linguagem de programação amplamente usada
+                                        para codificar aplicações Web. Ela tem sido uma escolha
+                                        popular entre os desenvolvedores há mais de duas décadas,
+                                        com milhões de aplicações Javas em uso hoje.</p>
+                                    <button class="linguagens" type="submit">ler mais</button>
+                                </div>
+                        </form>
+                    </div>
+
+                    <div class="caixas-2">
+                        <form action="/cursos/search?buscar=javascript">
+                                <div class="bloco2" style="background-image: url(/img/js.png)">
+                                    <h4>JavaScript</h4>
+                                    <p>JavaScript é uma linguagem de programação de alto
+                                        nível criada, a princípio, para ser executada em
+                                        navegadores e manipular comportamentos de páginas Web.</p>
+                                    <button class="linguagens" type="submit">ler mais</button>
+                                </div>
+                        </form>
+                    </div>
+
+                    <div class="caixas-3">
+                        <form action="/cursos/search?buscar=html">
+                            <div class="bloco3" style="background-image: url(/img/html.png)">
+                                <h4>Html</h4>
+                                <p>A Linguagem de Marcação de Hipertexto (HTML) é uma linguagem de
+                                computador que compõe a maior parte das páginas da internet e
+                                dos aplicativos online. </p>
+                                <button class="linguagens" type="submit">ler mais</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <button type="submit">ver mais</button>
+
+                </div>
+
+            </div>
+        </form>
+
+
+        <div class="forum">
+            <form action="/forum">
+            <h2>Forum</h2>
+
+                <div class="caixas">
+
+                    <div class="caixas-1">
+                        <a href="/forum/search?buscar=cursos" style="color: #fff">
+                            <div class="bloco4">
+                                <h4>Cursos</h4>
+                                <p>Perguntas referente aos cursos proporcionados</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="caixas-2">
+                        <a href="/forum/search?buscar=sala" style="color: #fff">
+                            <div class="bloco5">
+                                <h4>Sala</h4>
+                                <p>Perguntas referente as sessão de salas proporcionadas</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="caixas-3">
+                        <a href="/forum/search?buscar=problema" style="color: #fff">
+                            <div class="bloco6">
+                                <h4>Problemas</h4>
+                                <p>Perguntas referente a problemas ao sistema proporcionados</p>
+                            </div>
+                        </a>
+                    </div>
+                    <button type="submit">ver mais</button>
+                </div>
+            </form>
+        </div>
+    </main>
+    <div th:replace="/shared/footer"></div>
+</body>
+</html>

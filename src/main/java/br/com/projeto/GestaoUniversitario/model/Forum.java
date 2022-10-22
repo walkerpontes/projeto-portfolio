@@ -1,4 +1,4 @@
-package br.com.projeto.GestaoUniversitario.modelo;
+package br.com.projeto.GestaoUniversitario.model;
 
 import javax.persistence.*;
 import java.util.List;
@@ -12,13 +12,8 @@ public class Forum {
     private String pergunta;
     private String tema;
 
-
-    @ManyToMany
-    private List<Usuario> usuario;
-//    @Embedded
-//    @JoinColumn(name = "resposta")
-//    private RespostaForum respostaForum;
-
+    @OneToMany(mappedBy = "forum")
+    private List<RespostaForum> respostas;
 
 
     public Forum(String pergunta, String tema) {
@@ -43,13 +38,13 @@ public class Forum {
 
     }
 
-//    public RespostaForum getRespostaForum() {
-//        return respostaForum;
-//    }
-//
-//    public void setRespostaForum(RespostaForum respostaForum) {
-//        this.respostaForum = respostaForum;
-//    }
+    public List<RespostaForum> getRespostas() {
+        return respostas;
+    }
+
+    public void setRespostas(List<RespostaForum> respostas) {
+        this.respostas = respostas;
+    }
 
     public String getPergunta() {
         return pergunta;
@@ -59,14 +54,6 @@ public class Forum {
     }
     public String getTema() {
         return tema;
-    }
-
-    public List<Usuario> getUsuarios() {
-        return usuario;
-    }
-
-    public void setUsuarios(List<Usuario> usuario) {
-        this.usuario = usuario;
     }
 
     @Override

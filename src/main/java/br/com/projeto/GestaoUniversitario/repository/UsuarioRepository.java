@@ -1,35 +1,36 @@
 package br.com.projeto.GestaoUniversitario.repository;
 
 
-import br.com.projeto.GestaoUniversitario.modelo.Usuario;
-import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
-
-import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import br.com.projeto.GestaoUniversitario.model.Usuario;
+
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 @Transactional
-public interface UsuarioRepository extends PagingAndSortingRepository<Usuario,Integer>, JpaSpecificationExecutor<Usuario> {
+public  interface UsuarioRepository extends JpaRepository<Usuario,Integer> {
     @Modifying
-    @Query(value = "update usuario u SET u.curso_id = :curso WHERE u.id = :id",nativeQuery = true)
-    void cadastroCurso(Integer curso, Integer id );
-
-    @Modifying
-    @Query(value = "update usuario u SET u.forum_id = :forum u.id = :id",nativeQuery = true)
-    void cadastroForum(Integer forum, Integer id );
+    @Query(value = "INSERT INTO usuario_roles (usuario_id, roles_id) VALUES (?,1)",nativeQuery = true)
+    void usuarioRoleVisitante(@Param("idU") Integer idUsuario);
 
     @Modifying
-    @Query(value = "update usuario u SET u.salas_id = :forum WHERE u.id = :id",nativeQuery = true)
-    void cadastroSalas(Integer forum, Integer id );
+    @Query(value = "INSERT INTO usuario_roles (usuario_id, roles_id) VALUES (?,2)",nativeQuery = true)
+    void usuarioRoleUser(@Param("idU") Integer idUsuario);
 
-//    @Modifying
-//    @Query(value = "UPDATE usuario u SET u.forum.getRespostaForum.setResposta = :resposta WHERE u.id = :id AND u.forum_id = :forum")
-//    void responderForum(String resposta,Integer id,Integer forum);
+    @Modifying
+    @Query(value = "INSERT INTO usuario_roles (usuario_id, roles_id) VALUES (?,3)",nativeQuery = true)
+    void usuarioRoleAdmin(@Param("idU") Integer idUsuario);
 
+    List<Usuario> findBySenha(String senha);
+
+    Optional<Usuario> findByEmailAllIgnoreCase(String username);
 
 }

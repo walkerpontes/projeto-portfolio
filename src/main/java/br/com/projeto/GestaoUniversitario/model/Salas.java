@@ -1,4 +1,4 @@
-package br.com.projeto.GestaoUniversitario.modelo;
+package br.com.projeto.GestaoUniversitario.model;
 
 import javax.persistence.*;
 import java.util.List;
@@ -11,11 +11,8 @@ public class Salas {
      private Integer id;
      private String curso;
      private String titulo;
-
-     @ManyToMany
-     private List<Usuario> usuario;
-
-
+     @OneToMany(mappedBy = "salas")
+     private List<Mensagem> mensagem;
 
     public Salas() {
     }
@@ -25,12 +22,12 @@ public class Salas {
         this.titulo = titulo;
     }
 
-    public List<Usuario> getUsuario() {
-        return usuario;
+    public List<Mensagem> getMensagem() {
+        return mensagem;
     }
 
-    public void setUsuario(List<Usuario> usuario) {
-        this.usuario = usuario;
+    public void setMensagem(List<Mensagem> mensagem) {
+        this.mensagem = mensagem;
     }
 
     public Integer getId() {
@@ -40,6 +37,7 @@ public class Salas {
     public void setId(Integer id) {
         this.id = id;
     }
+
 
     public String getCurso() {
         return curso;

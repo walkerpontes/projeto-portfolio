@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Forum - Biblioteca A. Pontes</title>
+  <link rel="stylesheet" href="/css/forum.css">
+  <link rel="icon" href="/img/logo.png">
+</head>
+<body>
+<header th:replace="/shared/top"></header>
+
+<section class="main-forum">
+  <h3>Perguntas</h3>
+
+  <div class="perguntas" th:each="lista:${lista}">
+    <a th:href="@{/forum/{id}(id = ${lista.id})}">
+      <ul>
+        <li class="tema">Sobre: <span th:text="${lista.tema}"></span></li>
+        <li class="ask" th:text="${lista.pergunta}">Perguntas são para serem respondidas?</li>
+        <li class="respostas">Total de repostas: <span th:text="${lista.getRespostas().size()}"></span></li>
+      </ul>
+    </a>
+  </div>
+</section>
+
+<div th:replace="/shared/footer"></div>
+</body>
+</html>

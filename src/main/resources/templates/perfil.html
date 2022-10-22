@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Perfil - Biblioteca A. Pontes</title>
+  <link rel="stylesheet" href="/css/perfil.css">
+    <link rel="icon" href="/img/logo.png">
+</head>
+<body>
+<header th:replace="/shared/top"></header>
+
+<section class="content" th:if="${inLogado}">
+    <div class="box-perfil" th:each="logado:${logado}">
+        <div class="img-perfil"><img src="/img/perfil.jpg" alt="" style="width: 150px;height: 150px" ></div>
+        <div class="principal">
+          <p class="nome">nome: <span th:text="${logado.nome}">Ciclano da Silva</span></p>
+          <p class="email">email: <span th:text="${logado.email}">ciclano@email</span></p>
+        </div>
+        <div class="totais">
+          <p class="perfil-number">total mensagem: <span th:text="${mensagemSize}">99</span></p>
+          <p class="perfil-number"> total de perguntas: <span th:text="${forumSize}" >99</span></p>
+          <p class="perfil-number"> total de respostas: <span th:text="${respostaSize}">99</span></p>
+          <p class="perfil-number"> total de cursos vistos: <span th:text="${cursosSize}">99</span></p>
+        </div>
+      </div>
+
+</section>
+
+<section class="content-noLogado" th:if="${noLogado}">
+  <div class="box-perfil-noLogado">
+    <div class="noLogado">
+      <p>Faça seu <a href="/login">Login</a> :)</p>
+    </div>
+  </div>
+</section>
+<div th:replace="/shared/footer"></div>
+</body>
+</html>

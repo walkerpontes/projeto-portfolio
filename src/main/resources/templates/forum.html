@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Forum - Universidade A. Pontes</title>
+  <link rel="stylesheet" href="/css/forum.css">
+  <link rel="icon" href="/img/logo.png">
+</head>
+<body>
+  <header th:replace="/shared/top">
+  </header>
+
+
+  <section class="content">
+
+    <div class="barra-pesquisa">
+      <div class="barra-pesquisa-form">
+        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#fff" class="bi bi-search" viewBox="0 0 16 16">
+          <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+        </svg>
+        <div class="pesquisa">
+          <form th:action="@{/forum/search}">
+            <label>
+              <input type="text" class="text" name="buscar" placeholder="Buscar pergunta...">
+            </label>
+            <input type="submit" class="enviar" value="enviar">
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <section class="header-forum">
+      <div class="box-1">
+        <a href="/forum/search?buscar=java">
+          <div class="forum-linguagem-java">
+            <p>Perguntas sobre Java</p>
+          </div>
+        </a>
+      </div>
+
+      <div class="box-2">
+        <a href="/forum/search?buscar=html">
+          <div class="forum-linguagem-html">
+            <p>Perguntas sobre Html</p>
+          </div>
+        </a>
+      </div>
+
+      <div class="box-3">
+        <a href="/forum/search?buscar=javaScript">
+          <div class="forum-linguagem-js">
+            <p>Perguntas sobre JavaScript</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section class="main-forum">
+      <h3>Peguntas mais acessadas</h3>
+
+      <div class="perguntas" th:each="maisAcessado:${maisAcessado}">
+        <a th:href="@{/forum/{id}(id = ${maisAcessado.id})}">
+          <ul>
+            <li class="tema">Sobre: <span th:text="${maisAcessado.tema}"></span></li>
+            <li class="ask" th:text="${maisAcessado.pergunta}">Perguntas são para serem respondidas?</li>
+            <li class="respostas">Total de repostas: <span th:text="${maisAcessado.getRespostas().size()}"></span></li>
+          </ul>
+        </a>
+      </div>
+    </section>
+
+    <section class="footer-forum">
+      <h3>Perguntas ainda não respondidas</h3>
+
+      <div class="perguntas" th:each="semResposta:${semResposta}">
+        <a th:href="@{/forum/{id}(id = ${semResposta.id})}">
+          <ul>
+            <li class="tema">Sobre: <span th:text="${semResposta.tema}"></span></li>
+            <li class="ask" th:text="${semResposta.pergunta}">Perguntas sao apenas metodos de encarar o desconhecido?</li>
+            <li class="respostas">Total de repostas: <span th:text="${semResposta.getRespostas().size()}"></span></li>
+          </ul>
+        </a>
+      </div>
+
+    </section>
+
+  </section>
+
+  <div th:replace="/shared/footer">
+  </div>
+</body>
+</html>

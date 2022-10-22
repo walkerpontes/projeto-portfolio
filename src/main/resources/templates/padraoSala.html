@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>$Title$</title>
+  <link rel="stylesheet" href="/css/padraoSala.css">
+    <link rel="icon" href="/img/logo.png">
+</head>
+<body>
+<header th:replace="/shared/top"></header>
+    <div class="content">
+    <div class="content-mensagem">
+     <!--- <div class="form-mensagem" th:each="mensagem:${mensagem}" >
+        <div class="mensagem" >
+          <p th:text="${mensagem.mensagem}"> mensagem </p><br>
+        </div>
+      </div>--->
+
+
+      <div class="form-mensagem-other" th:each="mensagem:${mensagem}" >
+        <div class="mensagem-other" >
+          <p th:text="${mensagem.mensagem}">mensagem</p><br>
+        </div>
+      </div>
+
+
+
+      <div class="form" th:each="id:${sala.getId()}">
+        <form th:action="@{/salas/mensagem}" method="get">
+          <label>
+            <input type="hidden" name="id" id="id" th:value="${id}">
+            <input type="text" name="mensagem" id="mensagem" class="text">
+          </label>
+          <input type="submit" class="enviar" value="enviar">
+        </form>
+      </div>
+
+    </div>
+</div>
+</body>
+</html>

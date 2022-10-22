@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro - Biblioteca A. Pontes</title>
+    <link rel="stylesheet" href="/css/login.css">
+    <link rel="icon" href="/img/logo.png">
+</head>
+<body>
+    <div class="banner">
+        <img src="/img/logo.png" width="30" height="30" alt="logo">
+    </div>
+
+    <div class="login">
+        <p>Create Account</p>
+        <form action="cadastrar" method="post">
+
+            <div class="user">
+                <input type="text" required name="nome">
+                <label>User</label>
+            </div>
+
+          <div class="user">
+            <input type="text" required name="email">
+            <label>Email</label>
+          </div>
+
+          <div class="user">
+            <input type="password" required name="senha">
+            <label>Password</label>
+          </div>
+
+          <div class="entrar">
+            <input type="submit" value="Login in" class="botao">
+          </div>
+
+        </form>
+
+    </div>
+
+</body>
+</html>
