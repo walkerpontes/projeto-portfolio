@@ -6,7 +6,7 @@
 </head>
 <body>
  <h1>Cadastro Curso</h1>
-<form action="/cursos/cadastro" method="post">
+<form th:action="@{/cursos/cadastro}" method="post">
   <label> Nome
     <input type="text" name="nome" placeholder="Nome do Curso">
   </label>

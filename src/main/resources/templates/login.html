@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Login - Biblioteca A. Pontes</title>
-    <link rel="stylesheet" href="/css/login.css"/>
-    <link rel="icon" href="/img/logo.png">
+    <link rel="stylesheet" th:href="@{/css/login.css}"/>
+    <link rel="icon" th:href="@{/img/logo.png}">
 </head>
 <body>
     <div class="banner">
-        <a href="/home"><img src="/img/logo.png" width="30" height="30" alt="logo"></a>
+        <a th:href="@{/home}"><img th:src="@{/img/logo.png}" width="30" height="30" alt="logo"></a>
     </div>
 
     <div class="login">

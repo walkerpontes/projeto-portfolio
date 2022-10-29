@@ -1,7 +1,7 @@
 package br.com.projeto.GestaoUniversitario.controller;
 
-import org.apache.http.HttpStatus;
 import org.springframework.boot.web.servlet.error.ErrorController;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,10 +25,10 @@ public class ErroPages implements ErrorController {
         if (status != null) {
             int codigo = Integer.parseInt(status.toString());
 
-            if (codigo == HttpStatus.SC_NOT_FOUND) {
+            if (codigo == HttpStatus.NOT_FOUND.value()) {
                 model.addAttribute("notFound", true);
                 return "erroPage";
-            }else if (codigo == HttpStatus.SC_INTERNAL_SERVER_ERROR) {
+            }else if (codigo == HttpStatus.INTERNAL_SERVER_ERROR.value()) {
                     model.addAttribute("internalErro", true);
                 return "erroPage";
             }else {

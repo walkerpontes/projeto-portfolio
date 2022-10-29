@@ -17,7 +17,7 @@ import java.util.List;
 @Transactional
 public interface ForumRepository extends PagingAndSortingRepository<Forum,Integer>, JpaSpecificationExecutor<Forum> {
     List<Forum> findByRespostas_IdAllIgnoreCase(Integer id);
-    List<Forum> findByTemaAllIgnoreCase(String tema);
+    List<Forum> findByTemaContainsIgnoreCase(String tema);
 
     @Modifying
     @Query(value = "INSERT INTO resposta (resposta,forum_id,usuario_id) VALUES (?,?,?)",nativeQuery = true )

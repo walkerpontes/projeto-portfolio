@@ -17,6 +17,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Controller
 @Transactional
@@ -44,7 +45,7 @@ public class ForumController {
             return forum2.getRespostas().size() - forum1.getRespostas().size();
         });
 
-        List<Forum> maisAcessados = todos.stream().limit(5).toList();
+        List<Forum> maisAcessados = todos.stream().limit(5).collect(Collectors.toList());
 
         model.addAttribute("maisAcessado", maisAcessados);
     }
@@ -62,7 +63,7 @@ public class ForumController {
 
     @RequestMapping("/forum/search")
     public String searchByTema(@RequestParam String buscar,Model model){
-        List<Forum> lista = repository.findByPerguntaContainingIgnoreCase(buscar);
+        List<Forum> lista = repository.findByTemaContainsIgnoreCase(buscar);
         model.addAttribute("lista",lista);
         return "searchForum";
     }

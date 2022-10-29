@@ -3,24 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>Biblioteca A. Pontes</title>
-    <link rel="stylesheet" href="/css/home.css" type="text/css">
-    <link rel="icon" href="/img/logo.png">
+    <link rel="stylesheet" th:href="@{/css/home.css}" type="text/css">
+    <link rel="icon" th:href="@{/img/logo.png}">
 </head>
 <body>
-<a href="/logout"><button class="logout" sec:authorize="isAuthenticated()">Logout</button></a>
-<a href="/login"><button class="logout" sec:authorize="isAnonymous()">Login</button></a>
+<a th:href="@{/logout}"><button class="logout" sec:authorize="isAuthenticated()">Logout</button></a>
+<a th:href="@{/login}"><button class="logout" sec:authorize="isAnonymous()">Login</button></a>
 <header style="background-image: url(/img/universidade.png);">
     <div class="universidade">
 
 
     </div>
     <div class="banner">
-        <a href="/home"><img src="/img/logo.png" width="30" height="30" alt="logo"></a>
+        <a th:href="@{/home}"><img th:src="@{/img/logo.png}" width="30" height="30" alt="logo"></a>
             <ul>
-                <li><a href="/cursos">Cursos</a></li>
-                <li><a href="/forum">Forum</a></li>
-                <li><a href="/salas">Salas</a></li>
-                <li><a href="/perfil">Perfil</a></li>
+                <li><a th:href="@{/cursos}">Cursos</a></li>
+                <li><a th:href="@{/forum}">Forum</a></li>
+                <li><a th:href="@{/salas}">Salas</a></li>
+                <li><a th:href="@{/perfil}">Perfil</a></li>
             </ul>
         </div>
 
@@ -33,20 +33,20 @@
 
             <span class="autor">- Aristóteles</span>
 
-            <a href="/cursos"><button type="button" class="botao">comece a estudar</button></a>
+            <a th:href="@{/cursos}"><button type="button" class="botao">comece a estudar</button></a>
         </div>
     </div>
 
     </header>
     <main style="background: black">
-        <form action="/cursos">
+        <form th:action="@{/cursos}">
             <div class="curso">
                 <h2>Cursos</h2>
 
                 <div class="caixas">
 
                     <div class="caixas-1">
-                        <form action="/cursos/search?buscar=java">
+                        <form th:action="@{/cursos/search?buscar=java}">
                                 <div class="bloco1" style="background-image: url(/img/java.png)">
                                     <h4>Java</h4>
                                     <p>Java é uma linguagem de programação amplamente usada
@@ -59,7 +59,7 @@
                     </div>
 
                     <div class="caixas-2">
-                        <form action="/cursos/search?buscar=javascript">
+                        <form th:action="@{/cursos/search?buscar=javascript}">
                                 <div class="bloco2" style="background-image: url(/img/js.png)">
                                     <h4>JavaScript</h4>
                                     <p>JavaScript é uma linguagem de programação de alto
@@ -71,7 +71,7 @@
                     </div>
 
                     <div class="caixas-3">
-                        <form action="/cursos/search?buscar=html">
+                        <form th:action="@{/cursos/search?buscar=html}">
                             <div class="bloco3" style="background-image: url(/img/html.png)">
                                 <h4>Html</h4>
                                 <p>A Linguagem de Marcação de Hipertexto (HTML) é uma linguagem de
@@ -91,13 +91,13 @@
 
 
         <div class="forum">
-            <form action="/forum">
+            <form th:action="@{/forum}">
             <h2>Forum</h2>
 
                 <div class="caixas">
 
                     <div class="caixas-1">
-                        <a href="/forum/search?buscar=cursos" style="color: #fff">
+                        <a th:href="@{/forum/search?buscar=cursos}" style="color: #fff">
                             <div class="bloco4">
                                 <h4>Cursos</h4>
                                 <p>Perguntas referente aos cursos proporcionados</p>
@@ -106,7 +106,7 @@
                     </div>
 
                     <div class="caixas-2">
-                        <a href="/forum/search?buscar=sala" style="color: #fff">
+                        <a th:href="@{/forum/search?buscar=sala}" style="color: #fff">
                             <div class="bloco5">
                                 <h4>Sala</h4>
                                 <p>Perguntas referente as sessão de salas proporcionadas</p>
@@ -115,7 +115,7 @@
                     </div>
 
                     <div class="caixas-3">
-                        <a href="/forum/search?buscar=problema" style="color: #fff">
+                        <a th:href="@{/forum/search?buscar=problema}" style="color: #fff">
                             <div class="bloco6">
                                 <h4>Problemas</h4>
                                 <p>Perguntas referente a problemas ao sistema proporcionados</p>

@@ -1,5 +1,4 @@
 package br.com.projeto.GestaoUniversitario.configurations;
-import org.apache.tomcat.util.http.Cookies;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

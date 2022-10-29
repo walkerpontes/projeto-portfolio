@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <title>Perfil - Biblioteca A. Pontes</title>
-  <link rel="stylesheet" href="/css/perfil.css">
-    <link rel="icon" href="/img/logo.png">
+  <link rel="stylesheet" th:href="@{/css/perfil.css}">
+    <link rel="icon" th:href="@{/img/logo.png}">
 </head>
 <body>
 <header th:replace="/shared/top"></header>
 
 <section class="content" th:if="${inLogado}">
     <div class="box-perfil" th:each="logado:${logado}">
-        <div class="img-perfil"><img src="/img/perfil.jpg" alt="" style="width: 150px;height: 150px" ></div>
+        <div class="img-perfil"><img th:src="@{/img/perfil.jpg}" alt="" style="width: 150px;height: 150px" ></div>
         <div class="principal">
           <p class="nome">nome: <span th:text="${logado.nome}">Ciclano da Silva</span></p>
           <p class="email">email: <span th:text="${logado.email}">ciclano@email</span></p>
@@ -29,7 +29,7 @@
 <section class="content-noLogado" th:if="${noLogado}">
   <div class="box-perfil-noLogado">
     <div class="noLogado">
-      <p>Faça seu <a href="/login">Login</a> :)</p>
+      <p>Faça seu <a th:href="@{/login}">Login</a> :)</p>
     </div>
   </div>
 </section>
