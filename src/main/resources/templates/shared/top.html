@@ -1,4 +1,4 @@
-<a th:href="@{/logout}" xmlns:sec="http://www.thymeleaf.org/extras/spring-security"><button class="logout" sec:authorize="isAuthenticated()">Logout</button></a>
+<a th:fragment="top" th:href="@{/logout}" xmlns:sec="http://www.thymeleaf.org/extras/spring-security"><button class="logout" sec:authorize="isAuthenticated()">Logout</button></a>
     <a th:href="@{/login}" xmlns:sec="http://www.thymeleaf.org/extras/spring-security"><button class="logout" sec:authorize="isAnonymous()">Login</button></a>
 
 <div class="banner">

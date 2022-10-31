@@ -7,7 +7,7 @@
     <link rel="icon" th:href="@{/img/logo.png}">
 </head>
 <body>
-<header th:replace="/shared/top"></header>
+<header th:replace="/shared/top :: top"></header>
 
 <section class="content" th:if="${inLogado}">
     <div class="box-perfil" th:each="logado:${logado}">
