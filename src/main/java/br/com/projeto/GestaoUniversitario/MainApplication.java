@@ -10,7 +10,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @SpringBootApplication
 @EnableCaching
-public class MainApplication extends SpringBootServletInitializer {
+public class MainApplication{
 
 	public static void main(String[] args) {
 
