@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -cp target/classes:target/* MainApplication.java
+web: java $JAVA_OPTS -cp target/classes:target/* br.com.projeto.GestaoUniversitario.MainApplication
