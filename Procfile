@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -war target/GestaoUniversitario-0.0.1-SNAPSHOT.war --port $PORT target/*.war
+web: java $JAVA_OPTS -cp target/classes:target/* br.com.projeto.GestaoUniversitario.MainApplication
