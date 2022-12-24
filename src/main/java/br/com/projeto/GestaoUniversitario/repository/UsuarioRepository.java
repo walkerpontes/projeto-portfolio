@@ -29,6 +29,7 @@ public  interface UsuarioRepository extends JpaRepository<Usuario,Integer> {
     @Query(value = "INSERT INTO usuario_roles (usuario_id, roles_id) VALUES (?,3)",nativeQuery = true)
     void usuarioRoleAdmin(@Param("idU") Integer idUsuario);
 
+
     List<Usuario> findBySenha(String senha);
 
     Optional<Usuario> findByEmailAllIgnoreCase(String username);

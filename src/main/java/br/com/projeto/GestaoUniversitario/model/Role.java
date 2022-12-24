@@ -16,6 +16,11 @@ public class Role implements GrantedAuthority {
     @Column(unique = true)
     private RoleType role;
 
+    public Role(){
+    }
+    public Role(RoleType role) {
+        this.role = role;
+    }
 
     @Override
     public String getAuthority() {

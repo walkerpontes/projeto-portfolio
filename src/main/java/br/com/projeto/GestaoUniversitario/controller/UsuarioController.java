@@ -56,7 +56,6 @@ public class UsuarioController {
 
     @PostMapping("/cadastrar")
     public String Cadastrar(Usuario usuario){
-        Role role = new Role();
         user = new Usuario(usuario.getEmail(), new BCryptPasswordEncoder().encode(usuario.getSenha()));
         user.setNome(usuario.getNome());
         System.out.println(user.getNome());
@@ -79,7 +78,7 @@ public class UsuarioController {
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @RequestMapping("/admin")
     public String admin(){
-        return "cursoCadastro";
+        return "admin";
     }
 
 

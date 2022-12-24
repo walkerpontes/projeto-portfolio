@@ -1,7 +1,6 @@
 package br.com.projeto.GestaoUniversitario.model;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name = "cursos")
