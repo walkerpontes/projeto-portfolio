@@ -6,6 +6,10 @@ body{
     margin: 0;
     box-sizing: content-box;
 }
+
+a{
+    text-decoration: none;
+}
 ::-webkit-scrollbar{
     width: 8px;
     background: transparent;
@@ -340,6 +344,11 @@ header{
     background: right, linear-gradient(to top left,darkorchid, #d25ee0) ;
 }
 
+.curso a{
+    display: flex;
+    justify-content: center;
+}
+
 /*-----forum-----*/
 
 .forum{
@@ -441,11 +450,13 @@ header{
     box-shadow: 0 0 10px 1px #3361ff;
     height: 120px;
 }
-
-.forum button{
-    position: absolute;
-    bottom: -90px;
-    left: 45%;
+.forum a{
+    display: flex;
+    justify-content: center;
+}
+.button{
+    position: relative;
+    font-family: 'Anek Devanagari', sans-serif;
     cursor: pointer;
     font-size: 15px;
     padding: 15px 25px;

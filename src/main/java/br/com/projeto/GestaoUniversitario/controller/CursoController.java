@@ -45,8 +45,9 @@ public class CursoController {
         repository.save(novo);
         return "redirect: ";
     }
+
     @RequestMapping("/cursos/search")
-    public String search(Model model, @RequestParam String buscar){
+    public String search(Model model, @RequestParam(required = false,name = "buscar") String buscar){
         List<Cursos> listCursos = repository.findByNomeAllIgnoreCase(buscar);
         model.addAttribute("cursos",listCursos);
         return "cursos";

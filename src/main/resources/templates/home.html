@@ -39,55 +39,55 @@
 
     </header>
     <main style="background: black">
-        <form th:action="@{/cursos}">
             <div class="curso">
                 <h2>Cursos</h2>
 
                 <div class="caixas">
 
                     <div class="caixas-1">
-                        <form th:action="@{/cursos/search?buscar=java}">
+                        <form th:action="@{/cursos/search}">
                                 <div class="bloco1" style="background-image: url(/img/java.png)">
                                     <h4>Java</h4>
                                     <p>Java é uma linguagem de programação amplamente usada
                                         para codificar aplicações Web. Ela tem sido uma escolha
                                         popular entre os desenvolvedores há mais de duas décadas,
                                         com milhões de aplicações Javas em uso hoje.</p>
+                                    <input type="hidden" name="buscar" value="java">
                                     <button class="linguagens" type="submit">ler mais</button>
                                 </div>
                         </form>
                     </div>
 
                     <div class="caixas-2">
-                        <form th:action="@{/cursos/search?buscar=javascript}">
+                        <form th:action="@{/cursos/search}">
                                 <div class="bloco2" style="background-image: url(/img/js.png)">
                                     <h4>JavaScript</h4>
                                     <p>JavaScript é uma linguagem de programação de alto
                                         nível criada, a princípio, para ser executada em
                                         navegadores e manipular comportamentos de páginas Web.</p>
+                                    <input type="hidden" name="buscar" value="javascript">
                                     <button class="linguagens" type="submit">ler mais</button>
                                 </div>
                         </form>
                     </div>
 
                     <div class="caixas-3">
-                        <form th:action="@{/cursos/search?buscar=html}">
+                        <form th:action="@{/cursos/search}" method="get">
                             <div class="bloco3" style="background-image: url(/img/html.png)">
                                 <h4>Html</h4>
                                 <p>A Linguagem de Marcação de Hipertexto (HTML) é uma linguagem de
                                 computador que compõe a maior parte das páginas da internet e
                                 dos aplicativos online. </p>
-                                <button class="linguagens" type="submit">ler mais</button>
+                                <input type="hidden" name="buscar" value="html">
+                                <button class="linguagens" type="submit" >ler mais</button>
                             </div>
                         </form>
                     </div>
-
-                    <button type="submit">ver mais</button>
-
                 </div>
 
+                <a th:href="@{/cursos}"><div class="button">ver mais</div></a>
             </div>
-        </form>
+
 
 
         <div class="forum">
@@ -122,8 +122,8 @@
                             </div>
                         </a>
                     </div>
-                    <button type="submit">ver mais</button>
                 </div>
+                <a th:href="@{/forum}"><div class="button">ver mais</div></a>
             </form>
         </div>
     </main>
