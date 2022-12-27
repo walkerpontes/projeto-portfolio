@@ -317,7 +317,7 @@ header{
 .bloco3 .linguagens{
     cursor: pointer;
     bottom: 5px;
-    left: 60px;
+    left: 30px;
     display: none;
     transition: 1s ease-in-out;
 }
