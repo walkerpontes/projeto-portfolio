@@ -27,4 +27,11 @@ public interface SalasRepository extends PagingAndSortingRepository<Salas,Intege
     void saveByMensagemAllIgnoreCase(@Param("mensagem") String mensagem, @Param("idSala") int idSala, @Param("idUser")int id);
 
     List<Salas> findByTituloContainingIgnoreCase(String titulo);
+
+    @Modifying
+    @Query(value = "INSERT INTO usuario_salas (usuario_id,salas_id) VALUES (?,?)",nativeQuery = true)
+    void cadastrarCurso(@Param("idUser")int idUser,@Param("idSala") int idSala);
+
+    @Query(value = "SELECT x.usuario_id FROM usuario_salas x WHERE salas_id = ? ",nativeQuery = true)
+    int pegarUsuario(@Param("idSala")int idSala);
 }

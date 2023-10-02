@@ -1,13 +1,16 @@
+html{
+    width: 100%;
+    height: 100%;
+}
+
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: content-box;
-    font-family: 'Be Vietnam Pro', sans-serif;
 }
 body{
-    margin: 0;
-    padding: 0;
-    box-sizing: content-box;
+    height: 100%;
 }
 ::-webkit-scrollbar{
     width: 8px;
@@ -29,144 +32,109 @@ body{
     width: 110px;
 
 }
-.banner{
-    position: relative;
-    width: 100%;
-    height: 110px;
-    background: rgb(0, 0, 0);
-}
 
-.banner img{
-    position: absolute;
-    display: inline;
-    top: -3px;
-    left: 60px;
-    width: 110px;
-    height: 110px;
-    transform: scale(1.4);
-}
-.banner ul{
-    position: absolute;
-    top: 30px;
-    right: 60px;
-}
-
-.banner ul li{
-    display: inline;
-    margin-left: 25px;
-    font-size: 20px;
-}
-
-.banner ul li a{
-    position: relative;
-    text-decoration: none;
-    color: #fff;
-}
-
-.banner ul li a:after{
-    content: "";
-    position: absolute;
-    left:50%;
-    bottom: -5px;
-    height: 2px;
-    width: 0;
-    background: #0092a9;
-    transition: 0.4s;
-}
-.banner ul li a:hover{
-    color: rgb(59, 255, 255);
-}
-.banner ul li a:hover:after{
-    left:0;
-    width: 100%;
-}
 
 .content{
     display: flex;
     justify-content: center;
+    align-items: center;
     width: 100%;
-    background: rgba(52,52,86,0.94);
+    height: 700px;
+    background: rgb(17 91 126);
 }
 
 .box-perfil{
     position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-    margin: 50px auto;
-    width: 450px;
-    height: 500px;
-    background: rgba(211, 211, 211, 0.2);
+    width: 650px;
+    min-height: 400px;
+    background: rgba(182, 182, 182, 0.48);
     color: white;
     font-size: 20px;
-    padding: 30px;
-    box-shadow:  -18px 18px 36px #2d2d4b,
-    18px -18px 36px #3b3b61;
+    box-shadow: 0px 0px 17px 7px #00000026;
     border-radius: 20px;
 }
-.principal{
+
+.banner-perfil img{
+    position: absolute;
+    height: 200px;
+    width: 100%;
+    z-index: 1;
+    border-radius: 20px 20px 0 0;
+}
+
+.inf-perfil{
+    position: absolute;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    margin-bottom: 55px;
-
+    align-items: center;
+    justify-content: start;
+    width: 100%;
+    top:90px;
 }
 .img-perfil {
-    display: flex;
-    justify-content: center;
+    top: 50px;
+    z-index: 2;
+
 }
 
 .img-perfil img{
     border-radius: 90px;
-    margin-bottom: 50px;
+    width: auto;
+    height: 80px;
+    margin: 0 0 0 25px;
 
+}
+.principal{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 0 0 0 15px;
+    z-index: 2;
+}
+
+.nome{
+    font-weight: 600;
+}
+.email{
+    font-size: 15px;
+    margin: 5px 0 0 10px;
 }
 
 .nome:first-letter{
     text-transform: uppercase;
 }
 .totais{
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 60px;
+    width: calc(100% - 20px);
+    position: absolute;
+    display: grid;
+    justify-content: start;
+    grid-template-columns: repeat(auto-fit,minmax(150px,200px));
+    grid-gap: 10px 0;
+    margin: 0 0 0 20px;
+    top:250px
 }
 
 
 .perfil-number{
     margin: 0 25px 15px 0;
-    font-size: 18px;
+    font-size: 15px;
     text-align: left;
 }
 span{
     color: rgb(196, 196, 196);
 }
 
-.content-noLogado{
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    background: rgba(52,52,86,0.94);
-}
-.box-perfil-noLogado{
+
+.noLogado{
     position: relative;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 50px auto;
-    width: 450px;
-    height: 500px;
-    background: rgba(211, 211, 211, 0.2);
-    color: white;
-    font-size: 20px;
-    padding: 30px;
-    box-shadow:  -18px 18px 36px #2d2d4b,
-    18px -18px 36px #3b3b61;
-    border-radius: 20px;
-}
-.noLogado{
-    font-size: 35px;
-    font-family: 'Be Vietnam Pro', sans-serif;
+    height: 400px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
 }
 
 .noLogado a{

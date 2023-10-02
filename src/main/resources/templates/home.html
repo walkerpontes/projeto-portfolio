@@ -4,145 +4,118 @@
     <meta charset="UTF-8">
     <title>Biblioteca A. Pontes</title>
     <link rel="stylesheet" th:href="@{/css/home.css}" type="text/css">
-    <link rel="icon" th:href="@{/img/logo.png}">
+    <link rel="stylesheet" th:href="@{/css/header.css}">
+    <link rel="icon" th:href="@{/img/biblioteca-logo.png}">
 </head>
 <body>
-<a th:href="@{/logout}"><button class="logout" sec:authorize="isAuthenticated()">Logout</button></a>
-<a th:href="@{/login}"><button class="logout" sec:authorize="isAnonymous()">Login</button></a>
-<header style="background-image: url(/img/universidade.png);">
-    <div class="universidade">
+    <a th:href="@{/logout}">
+        <button class="logout" sec:authorize="isAuthenticated()">Logout</button>
+    </a>
+    <a th:href="@{/login}">
+        <button class="logout" sec:authorize="isAnonymous()">Login</button>
+    </a>
+    <header>
+        <div th:replace="~{/shared/top::top}"></div>
+
+        <div class="sobre" style="background-image: url(/img/universidade.png)">
+            <div class="inicial">
+                <div class="frase">
+                    <p>As raízes do estudos são <span>amargas</span>,<br> mas seus frutos são <span>doces</span>.</p>
+                </div>
 
 
-    </div>
-    <div class="banner">
-        <a th:href="@{/home}"><img th:src="@{/img/logo.png}" width="30" height="30" alt="logo"></a>
-            <ul>
-                <li><a th:href="@{/cursos}">Cursos</a></li>
-                <li><a th:href="@{/forum}">Forum</a></li>
-                <li><a th:href="@{/salas}">Salas</a></li>
-                <li><a th:href="@{/perfil}">Perfil</a></li>
-            </ul>
-        </div>
+                <span class="autor">- Aristóteles</span>
 
-    <div class="sobre">
-        <div class="inicial">
-            <div class="frase">
-             <p>As raízes do estudos são <span>amargas</span>,<br> mas seus frutos são <span>doces</span>.</p>
+                <a th:href="@{/cursos}">
+                    <button type="button" class="botao">comece a estudar</button>
+                </a>
             </div>
-
-
-            <span class="autor">- Aristóteles</span>
-
-            <a th:href="@{/cursos}"><button type="button" class="botao">comece a estudar</button></a>
         </div>
-    </div>
 
     </header>
-    <main style="background: black">
-            <div class="curso">
-                <h2>Cursos</h2>
 
-                <div class="caixas">
+    <div class="recursos">
+        <h2>Que tal Estudar na maior qualidade possível?</h2>
+        <div class="cards">
+            <div>
+                <img th:src="@{/img/icons8-copiar-96.png}">
+                <p><b>Sala</b> disponiveis 24 horas para convesar com os seus amigos</p>
 
-                    <div class="caixas-1">
-                        <form th:action="@{/cursos/search}">
-                                <div class="bloco1" style="background-image: url(/img/java.png)">
-                                    <h4>Java</h4>
-                                    <p>Java é uma linguagem de programação amplamente usada
-                                        para codificar aplicações Web. Ela tem sido uma escolha
-                                        popular entre os desenvolvedores há mais de duas décadas,
-                                        com milhões de aplicações Javas em uso hoje.</p>
-                                    <input type="hidden" name="buscar" value="java">
-                                    <button class="linguagens" type="submit">ver cursos</button>
-                                </div>
-                        </form>
-                    </div>
+            </div>
+            <div>
+                <img th:src="@{/img/icons8-livro-50.png}">
+                <p><b>Cursos</b> completos para estudar na hora que você quiser </p>
 
-                    <div class="caixas-2">
-                        <form th:action="@{/cursos/search}">
-                                <div class="bloco2" style="background-image: url(/img/js.png)">
-                                    <h4>JavaScript</h4>
-                                    <p>JavaScript é uma linguagem de programação de alto
-                                        nível criada, a princípio, para ser executada em
-                                        navegadores e manipular comportamentos de páginas Web.</p>
-                                    <input type="hidden" name="buscar" value="javascript">
-                                    <button class="linguagens" type="submit">ver cursos</button>
-                                </div>
-                        </form>
-                    </div>
-
-                    <div class="caixas-3">
-                        <form th:action="@{/cursos/search}" method="get">
-                            <div class="bloco3" style="background-image: url(/img/html.png)">
-                                <h4>Html</h4>
-                                <p>A Linguagem de Marcação de Hipertexto (HTML) é uma linguagem de
-                                computador que compõe a maior parte das páginas da internet e
-                                dos aplicativos online. </p>
-                                <input type="hidden" name="buscar" value="html">
-                                <button class="linguagens" type="submit" >ver cursos</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-
-                <a th:href="@{/cursos}"><div class="button">ver mais</div></a>
             </div>
 
-
-
-        <div class="forum">
-            <form th:action="@{/forum}">
-            <h2>Forum</h2>
-
-                <div class="caixas">
-
-                    <div class="caixas-1">
-                        <a th:href="@{/forum/search?buscar=cursos}" style="color: #fff">
-                            <div class="bloco4">
-                                <h4>Cursos</h4>
-                                <p>Perguntas referente aos cursos proporcionados</p>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="caixas-2">
-                        <a th:href="@{/forum/search?buscar=sala}" style="color: #fff">
-                            <div class="bloco5">
-                                <h4>Sala</h4>
-                                <p>Perguntas referente as sessão de salas proporcionadas</p>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="caixas-3">
-                        <a th:href="@{/forum/search?buscar=problema}" style="color: #fff">
-                            <div class="bloco6">
-                                <h4>Problemas</h4>
-                                <p>Perguntas referente a problemas ao sistema proporcionados</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <a th:href="@{/forum}"><div class="button">ver mais</div></a>
-            </form>
+            <div>
+                <img th:src="@{/img/forum.png}">
+                <p>Está com dificudade em algum curso? Use nosso <b>Fórum</b> para discutir seus problemas</p>
+            </div>
         </div>
-    </main>
+    </div>
+
+
+    <div class="curso">
+
+        <div class="texto">
+            <p class="texto-1">Quer aprender novas linguagens?</p>
+            <p class="texto-2"> Porque não acessa os nossos <b>cursos</b>!</p>
+            <p class="texto-3"> Video aulas disponíveis na hora que desejar</p>
+        </div>
+
+        <div class="caixas">
+
+            <div class="caixas-1">
+                <a th:href="@{/cursos/search?buscar=java}"><p>Java</p></a>
+            </div>
+
+            <div class="caixas-2">
+                <a th:href="@{/cursos/search?buscar=javascript}"><p>JavaScript</p></a>
+            </div>
+
+            <div class="caixas-3">
+                <a th:href="@{/cursos/search?buscar=html}"><p>Html</p></a>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="forum">
+
+        <div class="forum_body">
+
+            <div class="forum_1">
+
+                <img th:src="@{/img/icons8-comentar-debate-50.png}">
+                <div>
+                    <p>Compartilhe o seu conhecimento com os seus colegas </p>
+                    <p> ou está com dúvida?</p>
+                </div>
+
+            </div>
+
+            <p class="forum_2"><a th:href="@{/forum}">Acesse o nosso Fórum</a></p>
+
+        </div>
+    </div>
     <div>
         <footer style="
-background: black;
-position: relative;
-width: 100%;
-height: 200px;
-color: #c2c2c2;
-text-align: center;">
+    background: black;
+    position: relative;
+    width: 100%;
+    height: 200px;
+    color: #c2c2c2;
+    text-align: center;">
 
             <p style="
-    position: absolute;
-    width: 100%;
-    display: block;
-    top: 50%;
+        position: absolute;
+        width: 100%;
+        display: block;
+        top: 50%;
 
-">&copy; Copyright 2022</p>
+    ">&copy; Copyright 2023</p>
 
         </footer>
     </div>

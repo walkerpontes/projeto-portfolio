@@ -13,15 +13,17 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Repository
-@Cacheable("forumRepository")
 @Transactional
 public interface ForumRepository extends PagingAndSortingRepository<Forum,Integer>, JpaSpecificationExecutor<Forum> {
     List<Forum> findByRespostas_IdAllIgnoreCase(Integer id);
     List<Forum> findByTemaContainsIgnoreCase(String tema);
+    List<Forum> findByPerguntaContainingIgnoreCase(String pergunta);
 
     @Modifying
     @Query(value = "INSERT INTO resposta (resposta,forum_id,usuario_id) VALUES (?,?,?)",nativeQuery = true )
     void cadastrarResposta(@Param("resposta") String resposta, @Param("idForum") int idForum,@Param("idUser") int idUser);
 
-    List<Forum> findByPerguntaContainingIgnoreCase(String pergunta);
+    @Modifying
+    @Query(value = "INSERT INTO usuario_forum (usuario_id,forum_id) VALUES (?,?)",nativeQuery = true)
+    void cadastrarForum(@Param("usuario_id")int idUsuario,@Param("forum_id")int idForum);
 }

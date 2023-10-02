@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Salas - Biblioteca A. Pontes</title>
+    <link rel="stylesheet" th:href="@{/css/cadastro.css}">
+    <link rel="stylesheet" th:href="@{/css/header.css}">
+    <link rel="icon" th:href="@{/img/biblioteca-logo.png}">
+</head>
+<body>
+    <header>
+        <div th:replace="~{/shared/top::top}"></div>
+    </header>
+    <div class="body_cadastro">
+        <div class="cadastro">
+                <p class="titulo">Cadastrar Salas</p>
+            <form method="get" action="/salas/new" class="form">
+                <div class="input1">
+                    <p>Curso</p>
+                    <input type="text" name="curso" placeholder="Java">
+                </div>
+
+                <div class="input2">
+                    <p>Título</p>
+                    <input type="text" name="titulo" placeholder="Java para iniciantes">
+                </div>
+
+                <input type="submit" value="cadastrar">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

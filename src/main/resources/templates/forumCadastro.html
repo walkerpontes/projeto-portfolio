@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Fóruns - Biblioteca A. Pontes</title>
+    <link rel="stylesheet" th:href="@{/css/cadastro.css}">
+    <link rel="stylesheet" th:href="@{/css/header.css}">
+    <link rel="icon" th:href="@{/img/biblioteca-logo.png}">
+</head>
+<body>
+    <header>
+        <div th:replace="~{/shared/top::top}"></div>
+    </header>
+    <div class="body_cadastro">
+        <div class="cadastro">
+            <p class="titulo">Cadastrar Fórum</p>
+            <form method="get" action="/forum/new" class="form">
+                <div class="input1">
+                    <p>Pergunta</p>
+                    <input type="text" name="pergunta" placeholder="O que é ...">
+                </div>
+
+                <div class="input2">
+                    <p>Tema</p>
+                    <input type="text" name="tema" placeholder="Java">
+                </div>
+
+                <input type="submit" value="cadastrar">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

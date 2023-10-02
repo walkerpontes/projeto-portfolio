@@ -4,38 +4,31 @@
 <head>
     <meta charset="UTF-8">
     <title>Salas - Biblioteca A. Pontes</title>
-    <link rel="stylesheet" th:href="@{/css/cursos.css}">
-    <link rel="icon" th:href="@{/img/logo.png}">
+    <link rel="stylesheet" th:href="@{/css/sala.css}">
+    <link rel="stylesheet" th:href="@{/css/header.css}">
+    <link rel="icon" th:href="@{/img/biblioteca-logo.png}">
 </head>
 <body>
 <header>
     <a  th:href="@{/logout}" xmlns:sec="http://www.thymeleaf.org/extras/spring-security"><button class="logout" sec:authorize="isAuthenticated()">Logout</button></a>
     <a th:href="@{/login}" xmlns:sec="http://www.thymeleaf.org/extras/spring-security"><button class="logout" sec:authorize="isAnonymous()">Login</button></a>
-
-    <div class="banner">
-        <a th:href="@{/home}"><img th:src="@{/img/logo.png}" width="30" height="30" alt="logo"></a>
-        <ul>
-            <li><a th:href="@{/cursos}">Cursos</a></li>
-            <li><a th:href="@{/forum}">Forum</a></li>
-            <li><a th:href="@{/salas}">Salas</a></li>
-            <li><a th:href="@{/perfil}">Perfil</a></li>
-        </ul>
-    </div>
-</header>
+    <a th:href="@{/salas/cadastrar}"><button class="logout" style="bottom: 130px">Criar sala +</button></a>
+    <div th:replace="~{/shared/top::top}"></div>
 </header>
 
-<main>
+<main class="content">
     <div class="barra-pesquisa">
         <div class="barra-pesquisa-form">
-            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#fff" class="bi bi-search" viewBox="0 0 16 16">
-                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-            </svg>
+
             <div class="pesquisa">
                 <form th:action="@{/salas/search}">
                     <label>
                         <input type="text" class="text" name="buscar" placeholder="Buscar título...">
                     </label>
-                    <input type="submit" class="enviar">
+                    <button type="submit" class="button-search"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#fff" class="bi bi-search" viewBox="0 0 16 16">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                    </svg>
+                    </button>
                 </form>
             </div>
         </div>
@@ -43,14 +36,21 @@
 
     <div class="tabela" th:each="listaSala:${listaSala}">
         <a th:href="@{/salas/{id}(id=${listaSala.id})}">
-            <div style="position: initial;width: 100%;height: 100%">
-                <p th:text="${listaSala.curso}" name="nome" class="nome"></p>
-                <p th:text="${listaSala.titulo}" name="titulo" class="titulo"></p>
+            <div class="table">
+                <p th:text="${listaSala.curso}" name="nome" class="nome">Nome Curso</p>
+                <p th:text="${listaSala.titulo}" name="titulo" class="titulo">Titulo Curso</p>
+                <div class="usuario">
+                    <p>Criado por: </p>
+                    <p th:text="${user.findById(sala.pegarUsuario(listaSala.id)).get().getNome()}">anonimo</p>
+                </div>
             </div>
         </a>
     </div>
 
 </main>
+
+<div class="cjt-paginas" th:attr="data-paginas=${total}">
+</div>
 
 <div>
     <footer style="
@@ -67,9 +67,10 @@ text-align: center;">
     display: block;
     top: 50%;
 
-">&copy; Copyright 2022</p>
+">&copy; Copyright 2023</p>
 
     </footer>
 </div>
+<script th:src="@{/js/paginacao.js}" ></script>
 </body>
 </html>

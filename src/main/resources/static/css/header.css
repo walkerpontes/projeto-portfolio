@@ -1,0 +1,54 @@
+
+
+*{
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+.banner{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    min-height: auto;
+    background: rgb(0, 0, 0);
+}
+
+.banner img, .banner-img{
+    margin-left: 10px;
+    width: 130px;
+}
+.banner ul{
+    margin: 0 40px 0 0;
+}
+
+.banner ul li{
+    display: inline;
+    margin-left: 25px;
+    font-size: 17px;
+}
+
+.banner ul li a{
+    position: relative;
+    text-decoration: none;
+    color: #fff;
+}
+
+.banner ul li a:after{
+    content: "";
+    position: absolute;
+    left:50%;
+    bottom: -5px;
+    height: 2px;
+    width: 0;
+    background: #0092a9;
+    transition: 0.4s;
+}
+.banner ul li a:hover{
+    color: rgb(59, 255, 255);
+}
+.banner ul li a:hover:after{
+    left:0;
+    width: 100%;
+}

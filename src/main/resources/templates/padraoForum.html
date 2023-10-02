@@ -2,24 +2,17 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
   <meta charset="UTF-8">
-  <title>Forum - Biblioteca A. Pontes</title>
+  <title>Fórum - Biblioteca A. Pontes</title>
   <link rel="stylesheet" th:href="@{/css/padraoForum.css}">
-  <link rel="icon" th:href="@{/img/logo.png}">
+  <link rel="stylesheet" th:href="@{/css/header.css}">
+  <link rel="icon" th:href="@{/img/biblioteca-logo.png}">
 </head>
 <body>
 <header>
   <a th:href="@{/logout}" xmlns:sec="http://www.thymeleaf.org/extras/spring-security"><button class="logout" sec:authorize="isAuthenticated()">Logout</button></a>
   <a th:href="@{/login}" xmlns:sec="http://www.thymeleaf.org/extras/spring-security"><button class="logout" sec:authorize="isAnonymous()">Login</button></a>
 
-  <div class="banner">
-    <a th:href="@{/home}"><img th:src="@{/img/logo.png}" width="30" height="30" alt="logo"></a>
-    <ul>
-      <li><a th:href="@{/cursos}">Cursos</a></li>
-      <li><a th:href="@{/forum}">Forum</a></li>
-      <li><a th:href="@{/salas}">Salas</a></li>
-      <li><a th:href="@{/perfil}">Perfil</a></li>
-    </ul>
-  </div>
+  <div th:replace="~{/shared/top::top}"></div>
 </header>
 <div class="content" >
   <div class="pergunta" th:each="forum:${forum}">
@@ -31,8 +24,7 @@
     <form th:action="@{/forum/responder}" method="get">
       <label>
         <input type="hidden" th:value="${forum}" name="id">
-        <span>Responder</span>
-        <textarea id="resposta" name="resposta"></textarea>
+        <textarea id="resposta" name="resposta" placeholder="Responder..."></textarea>
         <input type="submit">
       </label>
     </form>
@@ -42,12 +34,11 @@
   <div class="respostas">
     <div class="totalRespostas"><p>Total de respostas: <span th:text="${respostas.size()}">0</span></p></div>
 
-    <div class="caixas-respostas" th:each="respostas:${respostas}">
-      <ul>
-        <li class="response" th:text="${respostas.getResposta()}">Resposta de todas as coisas</li>
-        <li class="user" th:text="${respostas.getUsuario().getEmail()}" >Desconhecido</li>
-        <li class="user" th:if="${respostas.usuario.email==null}">Desconhecido</li>
-      </ul>
+    <div class="caixa">
+      <div class="caixas-respostas" th:each="respostas:${respostas}">
+          <span class="response" th:text="${respostas.getResposta()}">Resposta de todas as coisas</span>
+          <span class="user">Respondido por: <p th:text="${respostas.getUsuario().getEmail()}" >Desconhecido</p></span>
+      </div>
     </div>
   </div>
 </div>
@@ -66,7 +57,7 @@ text-align: center;">
     display: block;
     top: 50%;
 
-">&copy; Copyright 2022</p>
+">&copy; Copyright 2023</p>
 
   </footer>
 </div>

@@ -125,7 +125,7 @@ public class Usuario implements UserDetails , Serializable {
 
     @Override
     public String toString() {
-        return "Seu email é: " + email + " sua senha é "+senha+"\n";
+        return id.toString() ;
     }
 
     public String logado(){

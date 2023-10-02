@@ -2,24 +2,18 @@
 <html lang="pt" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>Forum - Universidade A. Pontes</title>
+  <title>Fórum - Universidade A. Pontes</title>
   <link rel="stylesheet" th:href="@{/css/forum.css}">
-  <link rel="icon" th:href="@{/img/logo.png}">
+  <link rel="stylesheet" th:href="@{/css/header.css}">
+  <link rel="icon" th:href="@{/img/biblioteca-logo.png}">
 </head>
 <body>
 <header>
   <a  th:href="@{/logout}" xmlns:sec="http://www.thymeleaf.org/extras/spring-security"><button class="logout" sec:authorize="isAuthenticated()">Logout</button></a>
   <a th:href="@{/login}" xmlns:sec="http://www.thymeleaf.org/extras/spring-security"><button class="logout" sec:authorize="isAnonymous()">Login</button></a>
+  <a th:href="@{/forum/cadastrar}"><button class="logout cadastar">Criar pergunta +</button></a>
 
-  <div class="banner">
-    <a th:href="@{/home}"><img th:src="@{/img/logo.png}" width="30" height="30" alt="logo"></a>
-    <ul>
-      <li><a th:href="@{/cursos}">Cursos</a></li>
-      <li><a th:href="@{/forum}">Forum</a></li>
-      <li><a th:href="@{/salas}">Salas</a></li>
-      <li><a th:href="@{/perfil}">Perfil</a></li>
-    </ul>
-  </div>
+  <div th:replace="~{/shared/top::top}"></div>
 </header>
 
 
@@ -27,15 +21,15 @@
 
     <div class="barra-pesquisa">
       <div class="barra-pesquisa-form">
-        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#fff" class="bi bi-search" viewBox="0 0 16 16">
-          <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-        </svg>
         <div class="pesquisa">
           <form th:action="@{/forum/search}">
             <label>
               <input type="text" class="text" name="buscar" placeholder="Buscar pergunta...">
             </label>
-            <input type="submit" class="enviar" value="enviar">
+            <button type="submit" class="button-search"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#fff" class="bi bi-search" viewBox="0 0 16 16">
+              <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+            </svg>
+            </button>
           </form>
         </div>
       </div>
@@ -72,11 +66,9 @@
 
       <div class="perguntas" th:each="maisAcessado:${maisAcessado}">
         <a th:href="@{/forum/{id}(id = ${maisAcessado.id})}">
-          <ul>
-            <li class="tema">Sobre: <span th:text="${maisAcessado.tema}"></span></li>
-            <li class="ask" th:text="${maisAcessado.pergunta}">Perguntas são para serem respondidas?</li>
-            <li class="respostas">Total de repostas: <span th:text="${maisAcessado.getRespostas().size()}"></span></li>
-          </ul>
+            <p class="tema">Sobre: <span th:text="${maisAcessado.tema}"></span></p>
+            <p class="ask" th:text="${maisAcessado.pergunta}">Perguntas são para serem respondidas?</p>
+            <p class="respostas">Total de repostas: <span th:text="${maisAcessado.getRespostas().size()}"></span></p>
         </a>
       </div>
     </section>
@@ -86,17 +78,17 @@
 
       <div class="perguntas" th:each="semResposta:${semResposta}">
         <a th:href="@{/forum/{id}(id = ${semResposta.id})}">
-          <ul>
-            <li class="tema">Sobre: <span th:text="${semResposta.tema}"></span></li>
-            <li class="ask" th:text="${semResposta.pergunta}">Perguntas sao apenas metodos de encarar o desconhecido?</li>
-            <li class="respostas">Total de repostas: <span th:text="${semResposta.getRespostas().size()}"></span></li>
-          </ul>
+            <p class="tema">Sobre: <span th:text="${semResposta.tema}"></span></p>
+            <p class="ask" th:text="${semResposta.pergunta}">Perguntas sao apenas metodos de encarar o desconhecido?</p>
+            <p class="respostas">Total de repostas: <span th:text="${semResposta.getRespostas().size()}"></span></p>
         </a>
       </div>
 
     </section>
-
   </section>
+
+<div class="cjt-paginas" th:attr="data-paginas=${total}">
+</div>
 
   <div >
     <footer style="
@@ -113,9 +105,10 @@ text-align: center;">
     display: block;
     top: 50%;
 
-">&copy; Copyright 2022</p>
+">&copy; Copyright 2023</p>
 
     </footer>
   </div>
+<script th:src="@{/js/paginacao.js}"></script>
 </body>
 </html>

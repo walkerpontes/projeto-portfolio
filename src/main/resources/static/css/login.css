@@ -3,10 +3,10 @@ html{
 }
 
 body{
+  height: 100%;
   margin: 0;
   padding: 0;
   background: linear-gradient(#141e30,#243b55);
-  font-family: monospace;
 }
 ::-webkit-scrollbar{
   width: 8px;
@@ -17,13 +17,6 @@ body{
   background: #aa00ff;
   border-radius: 10px;
 }
-
-
-img{
-    margin:25px auto auto 80px;
-    transform: scale(4.5);
-}
-
 
 .login{
 

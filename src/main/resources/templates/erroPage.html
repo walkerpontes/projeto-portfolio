@@ -4,19 +4,12 @@
   <meta charset="UTF-8">
   <title>Erro - Biblioteca A. Pontes</title>
   <link rel="stylesheet" th:href="@{/css/erroPage.css}">
-    <link rel="icon" th:href="@{/img/logo.png}">
+    <link rel="stylesheet" th:href="@{/css/header.css}">
+    <link rel="icon" th:href="@{/img/biblioteca-logo.png}">
 </head>
 <body>
   <header>
-    <div class="banner">
-        <a th:href="@{/home}"><img th:src="@{/img/logo.png}" width="30" height="30" alt="logo"></a>
-      <ul>
-        <li><a th:href="@{/cursos}">Cursos</a></li>
-        <li><a th:href="@{/forum}">Forum</a></li>
-        <li><a th:href="@{/salas}">Salas</a></li>
-        <li><a rel="index" th:href="@{../perfil}">Perfil</a></li>
-      </ul>
-    </div>
+      <div th:replace="~{/shared/top::top}"></div>
   </header>
 
   <main>
@@ -55,7 +48,7 @@ text-align: center;">
     display: block;
     top: 50%;
 
-">&copy; Copyright 2022</p>
+">&copy; Copyright 2023</p>
 
       </footer>
   </div>

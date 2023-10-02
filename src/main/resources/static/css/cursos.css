@@ -1,6 +1,5 @@
 
 *{
-    font-family: 'Be Vietnam Pro', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: content-box;
@@ -8,7 +7,9 @@
 body{
     margin: 0;
     padding: 0;
+    height: 100%;
     box-sizing: content-box;
+    background: #004b9f;
 }
 ::-webkit-scrollbar{
     width: 8px;
@@ -30,71 +31,24 @@ body{
     width: 110px;
 
 }
-.banner{
-    position: relative;
-    width: 100%;
-    height: 110px;
-    background: rgb(0, 0, 0);
-}
-
-.banner img{
-    position: absolute;
-    display: inline;
-    top: -3px;
-    left: 60px;
-    width: 110px;
-    height: 110px;
-    transform: scale(1.4);
-}
-.banner ul{
-    position: absolute;
-    top: 30px;
-    right: 60px;
-}
-
-.banner ul li{
-    display: inline;
-    margin-left: 25px;
-    font-size: 20px;
-}
-
-.banner ul li a{
-    position: relative;
-    text-decoration: none;
-    color: #fff;
-}
-
-.banner ul li a:after{
-    content: "";
-    position: absolute;
-    left:50%;
-    bottom: -5px;
-    height: 2px;
-    width: 0;
-    background: #0092a9;
-    transition: 0.4s;
-}
-.banner ul li a:hover{
-    color: rgb(59, 255, 255);
-}
-.banner ul li a:hover:after{
-    left:0;
-    width: 100%;
-}
 
 /*----- main -------*/
 
-main {
+.content {
     position: relative;
-    padding: 30px 200px;
-    background: linear-gradient(90deg, #ff6ff2, #5700b7);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 290px));
+    grid-template-rows: repeat(auto-fit,300px);
+    justify-content: center;
+    justify-items: center;
+    column-gap: 15px;
+    row-gap: 40px;
+    padding: 80px 60px;
     min-height: 400px;
 }
 /*-------barra de pesquisa------*/
 .barra-pesquisa{
     position: absolute;
-    display: flex;
-    flex-wrap: nowrap;
     right: 200px;
     top: 0;
     z-index: 3;
@@ -107,22 +61,26 @@ main {
 
 }
 .barra-pesquisa-form{
-    display: flex;
-    background: black;
     flex-wrap: nowrap;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     transition: 1s all;
 }
-.barra-pesquisa svg{
-    padding-top: 15px;
-    padding-left: 10px;
-    border-radius: 10px;
-    transform: translate(5px,-10px);
+.button-search{
+    display: flex;
+    border: 0;
+    background: #000000;
+    margin: 0 10px 0 0;
+    box-shadow: none;
+    padding: 10px;
+    border-radius: 0 0 10px 10px;
     transition: 1s all;
 
 }
-.barra-pesquisa form{
+.pesquisa form{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     width: 100%;
     transition: 1s all;
 }
@@ -131,107 +89,98 @@ main {
     margin: auto 0;
     display: flex;
     flex-wrap: nowrap;
-    padding: 10px;
     background: black;
-    width: 0;
+    width: 45px;
+    border-radius: 0 0 10px 10px;
+    padding: 0;
     transition: 1s all;
 
 }
 
 .text{
-    display: none;
-    width: 75%;
-    padding: 5px 5px;
+    width: 0;
     outline:none;
     font-size: 17px;
     border: 0;
     border-radius: 10px;
     background: transparent;
     color: white;
+    transition: 1s all;
 }
-.enviar{
-    display: none;
-    height: 30px;
-    width: 50px;
-    margin-left: 10px;
-    border: 0;
-    border-radius: 7px;
-    background: #a592ff;
-}
-
 
 .barra-pesquisa:hover .pesquisa{
-    width: 360px;
-    border-bottom-right-radius: 10px ;
+    padding: 10px;
+    width: 250px;
+    border-bottom-left-radius: 10px ;
 }
-.barra-pesquisa:hover svg{
-    transform:translate(5px,0);
+.barra-pesquisa:hover .button-search{
+
+    padding: 5px 20px;
+    background: #1912d7;
+    margin-right: 10px;
+    border-radius: 10px;
 }
 .barra-pesquisa:hover .text{
-
     display: inline-block;
+    width: 75%;
+    padding: 5px 5px;
 
 }
-.barra-pesquisa:hover .enviar{
-    display: inline-block;
-}
-
 /*-------barra de pesquisa------*/
 
 
 .tabela{
     position: relative;
+    display: inline-table;
     background: rgba(255, 255, 255, 0.4);
-    text-align: center;
-    margin-bottom: 30px;
-    width: 100%;
-    height: 150px;
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
-    border-right: 10px solid #76c1ae;
+    padding: 0 20px;
+    width: 230px;
+    min-height: 300px;
+    border-radius: 10px;
     transition: .5s;
 }
-
-.tabela:nth-child(even){
-    border-right-color: #cc3232;
+.tabela div{
+    position: relative;
+    display: grid;
+    grid-auto-columns: 215px;
+    grid-auto-rows: 100px 10px 60px auto;
+    justify-content: start;
+    align-items: center;
+    width: 100%;
+    height: 100%;
 }
-.tabela:nth-child(3n) {
-    border-right-color: #3247cc;
-}
-
 .tabela p{
-    position: absolute;
-    display: inline-block;
     color: black;
+}
+.tabela a{
+    text-decoration: none;
 }
 .tabela p:first-letter{
     text-transform: uppercase;
 }
+.tabela img {
+    align-self: flex-end;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+
+}
 .id{
-    left: 25px;
-    top: 20px;
     font-size: 25px;
     margin: 0;
 
 }
 .nome{
     margin: 0;
-    top: 1em;
-    left: 5em;
-    font-size: 30px;
-    font-family: 'Roboto', sans-serif;
+    font-size: 25px;
     font-weight: 700;
 
 }
 .titulo{
-    margin: 0;
-    font-size: 18px;
-    bottom: 2em;
-    left: 8.5em;
-    font-family: 'Inter', sans-serif;
+    align-self: start;
+    margin: 0 0 20px 0;
+    font-size: 17px;
     font-weight: 400;
-    max-width: 70%;
-    text-align: left;
 }
 p.nome:first-letter,
 p.titulo:first-letter{
@@ -241,12 +190,29 @@ p.titulo:first-letter{
 
 .tabela:hover{
     transform: scale(1.01);
-    background: rgba(157, 255, 229, 0.78);
+
 }
 
-.tabela:hover:nth-child(even){
-  background: rgba(255, 89, 89, 0.7);
+.cjt-paginas{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 90px;
 }
-.tabela:hover:nth-child(3n){
-   background: rgba(87, 108, 255, 0.66);
+.paginas{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:#fff;
+    border-radius: 100%;
+    width: 40px;
+    height: 40px;
+    text-decoration: none;
+    color: #000;
+    margin: 0 2px;
+}
+.activePgn{
+    background: #0bb;
 }

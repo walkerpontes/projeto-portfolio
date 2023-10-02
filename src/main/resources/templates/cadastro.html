@@ -4,12 +4,11 @@
     <meta charset="UTF-8">
     <title>Cadastro - Biblioteca A. Pontes</title>
     <link rel="stylesheet" th:href="@{/css/login.css}">
-    <link rel="icon" th:href="@{/img/logo.png}">
+    <link rel="stylesheet" th:href="@{/css/header.css}">
+    <link rel="icon" th:href="@{/img/biblioteca-logo.png}">
 </head>
 <body>
-    <div class="banner">
-        <img th:src="@{/img/logo.png}" width="30" height="30" alt="logo">
-    </div>
+    <div th:replace="~{/shared/top::top}"></div>
 
     <div class="login">
         <p>Create Account</p>

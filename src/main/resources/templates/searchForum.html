@@ -2,40 +2,32 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>Forum - Biblioteca A. Pontes</title>
+  <title>Fórum - Biblioteca A. Pontes</title>
   <link rel="stylesheet" th:href="@{/css/forum.css}">
-  <link rel="icon" th:href="@{/img/logo.png}">
+  <link rel="stylesheet" th:href="@{/css/header.css}">
+  <link rel="icon" th:href="@{/img/biblioteca-logo.png}">
 </head>
 <body>
 <header>
   <a  th:href="@{/logout}" xmlns:sec="http://www.thymeleaf.org/extras/spring-security"><button class="logout" sec:authorize="isAuthenticated()">Logout</button></a>
   <a th:href="@{/login}" xmlns:sec="http://www.thymeleaf.org/extras/spring-security"><button class="logout" sec:authorize="isAnonymous()">Login</button></a>
 
-  <div class="banner">
-    <a th:href="@{/home}"><img th:src="@{/img/logo.png}" width="30" height="30" alt="logo"></a>
-    <ul>
-      <li><a th:href="@{/cursos}">Cursos</a></li>
-      <li><a th:href="@{/forum}">Forum</a></li>
-      <li><a th:href="@{/salas}">Salas</a></li>
-      <li><a th:href="@{/perfil}">Perfil</a></li>
-    </ul>
-  </div>
+  <div th:replace="~{/shared/top::top}"></div>
 </header>
 
-<section class="main-forum">
+<section class="footer-forum">
   <h3>Perguntas</h3>
 
   <div class="perguntas" th:each="lista:${lista}">
     <a th:href="@{/forum/{id}(id = ${lista.id})}">
-      <ul>
-        <li class="tema">Sobre: <span th:text="${lista.tema}"></span></li>
-        <li class="ask" th:text="${lista.pergunta}">Perguntas são para serem respondidas?</li>
-        <li class="respostas">Total de repostas: <span th:text="${lista.getRespostas().size()}"></span></li>
-      </ul>
+        <p class="tema">Sobre: <span th:text="${lista.tema}"></span></p>
+        <p class="ask" th:text="${lista.pergunta}">Perguntas são para serem respondidas?</p>
+        <p class="respostas">Total de repostas: <span th:text="${lista.getRespostas().size()}"></span></p>
     </a>
   </div>
 </section>
-
+<div class="cjt-paginas" th:attr="data-paginas=${total}">
+</div>
 <div>
   <footer style="
 background: black;
@@ -47,9 +39,10 @@ position: relative; width: 100%; height: 200px; color: #c2c2c2; text-align: cent
     display: block;
     top: 50%;
 
-">&copy; Copyright 2022</p>
+">&copy; Copyright 2023</p>
 
   </footer>
 </div>
+<script th:src="@{/js/paginacao.js}"></script>
 </body>
 </html>

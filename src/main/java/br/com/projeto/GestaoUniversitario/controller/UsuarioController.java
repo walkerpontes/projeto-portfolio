@@ -56,7 +56,7 @@ public class UsuarioController {
 
     @PostMapping("/cadastrar")
     public String Cadastrar(Usuario usuario){
-        user = new Usuario(usuario.getEmail(), new BCryptPasswordEncoder().encode(usuario.getSenha()));
+        user = new Usuario(usuario.getEmail(),usuario.getSenha());
         user.setNome(usuario.getNome());
         System.out.println(user.getNome());
         System.out.println(user.getEmail());
