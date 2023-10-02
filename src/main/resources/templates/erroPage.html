@@ -17,7 +17,7 @@
           <img th:src="@{/img/erroPage.png}" alt="Mascote erro">
       </div>
     <div th:if="${naoAutorizado}" class="erro">
-      Esse usuário não é autorizado a acessar essa página<br>volte a página <a th:href="@{/home}">home</a>
+      Você não está autorizado a acessar essa página<br>volte a página <a th:href="@{/home}">home</a>
     </div>
 
    <div th:if="${notFound}" class="erro">
