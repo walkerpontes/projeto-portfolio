@@ -9,6 +9,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.Optional;
+
 @Controller
 public class Seed {
 
@@ -24,6 +26,7 @@ public class Seed {
     @Autowired
     private ForumRepository forumRepository;
 
+
     @RequestMapping("/seed")
     public String seed() {
 
@@ -36,11 +39,16 @@ public class Seed {
             Usuario user2 = new Usuario("beltrano@email", encoder.encode("beltrano"));
             Usuario user3 = new Usuario("ciclano@email", encoder.encode("ciclano"));
             Usuario user4 = new Usuario("walker@email", encoder.encode("walker"));
+            user.setNome("Fulano");
+            user2.setNome("Beltrano");
+            user3.setNome("Ciclano");
+            user4.setNome("Walker");
 
             repository.save(user);
             repository.save(user2);
             repository.save(user3);
             repository.save(user4);
+
 
             Role visitante = new Role(RoleType.ROLE_VISITANTE);
             Role usuario = new Role(RoleType.ROLE_USUARIO);
@@ -104,6 +112,10 @@ public class Seed {
             salasRepository.save(salas8);
             salasRepository.save(salas9);
 
+            // ASSOCIAR AS SALAS COM O USUARIO DEFAULT
+            Optional<Usuario> padrao = repository.findByEmailAllIgnoreCase("walker@email");
+            salasRepository.findAll().forEach(sala -> salasRepository.cadastrarCurso(padrao.isEmpty()? 1: padrao.get().getId(),sala.getId()));
+
             //CRIAÇÃO DOS FORUNS
 
 
@@ -129,6 +141,9 @@ public class Seed {
             forumRepository.save(forum7);
             forumRepository.save(forum8);
             forumRepository.save(forum9);
+
+
+
 
 
         } else {

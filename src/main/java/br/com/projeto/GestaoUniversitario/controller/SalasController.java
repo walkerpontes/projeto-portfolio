@@ -37,8 +37,6 @@ public class SalasController {
         Page<Salas> paginaSalas = repository.findAll(paginacao);
         int totalPaginas = paginaSalas.getTotalPages();
         List<Salas> listaSalas = paginaSalas.get().collect(Collectors.toList());
-        String nome = repositoryUser.findById(repository.pegarUsuario(19)).get().getNome();
-        System.out.println(nome);
         model.addAttribute("sala",repository);
         model.addAttribute("user",repositoryUser);
         model.addAttribute("total",totalPaginas);
