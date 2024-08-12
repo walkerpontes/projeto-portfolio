@@ -5,7 +5,7 @@ Tecnologias usadas na aplicação:
 - Java 17
 -Spring Boot
 -Spring Jpa (para comunicação entre a aplicação e o banco de dados)
--Postgresql (banco de dados)
+-Mysql (banco de dados)
 -Spring Security v5.7.3
 -Spring Boot Cache
 -TomCat7 v2.2
